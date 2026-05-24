@@ -2,6 +2,8 @@
 
 Use this checklist for system design docs, design proposals, RFCs, and architecture sketches.
 
+For technology-choice decisions involving protocols, API styles, databases, indexing, caching, sharding, consistent hashing, CAP tradeoffs, or capacity estimates, also use `system-design-architecture-decision-playbook.md`.
+
 ## Problem and Scope
 
 - Is the problem statement concrete and tied to user or business impact?

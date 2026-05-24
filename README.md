@@ -14,12 +14,18 @@ skills/<skill-name>/SKILL.md
 
 Bundled skill:
 
-- `engineering-workflow-reviewer`: reviews software engineering work before shipping, including system design, code review, low-level design/coding guidance, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
+- `engineering-workflow-reviewer`: reviews software engineering work before shipping, including system design, backend architecture technology choices, code review, low-level design/coding guidance, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
 
 Low-level design guidance is bundled inside the reviewer skill at:
 
 ```txt
 skills/engineering-workflow-reviewer/references/low-level-design-coding-principles.md
+```
+
+System design architecture decision guidance is bundled inside the reviewer skill at:
+
+```txt
+skills/engineering-workflow-reviewer/references/system-design-architecture-decision-playbook.md
 ```
 
 ## Install All Skills
@@ -172,6 +178,7 @@ Examples:
 
 ```txt
 Use engineering-workflow-reviewer to review this architecture proposal.
+Use engineering-workflow-reviewer to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
 Use engineering-workflow-reviewer to write a PR description from this diff.
 Use engineering-workflow-reviewer to review these API docs before release.
 Use engineering-workflow-reviewer to turn these changes into release notes.

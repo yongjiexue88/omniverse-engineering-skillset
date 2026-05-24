@@ -2,6 +2,8 @@
 
 Use this checklist for ADRs, RFC decisions, tradeoff analyses, and architecture proposals.
 
+For backend/system technology choices involving protocols, API styles, databases, indexing, caching, sharding, consistent hashing, CAP tradeoffs, or capacity estimates, also use `system-design-architecture-decision-playbook.md`.
+
 ## Decision Framing
 
 - Is the decision statement specific and actionable?

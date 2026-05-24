@@ -1,6 +1,6 @@
 ---
 name: engineering-workflow-reviewer
-description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, code review, low-level design, PR descriptions, architecture decisions, API documentation, debugging plans, release notes, missing tests, risk areas, and reviewer questions.
+description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, backend architecture technology choices, code review, low-level design, PR descriptions, architecture decisions, API documentation, debugging plans, release notes, missing tests, risk areas, and reviewer questions.
 ---
 
 # Engineering Workflow Reviewer
@@ -14,6 +14,7 @@ Review software engineering work before it ships and guide implementation qualit
 Use this skill when the user asks for help with any of these tasks:
 
 - Reviewing a system design, architecture proposal, design doc, ADR, RFC, or technical plan.
+- Choosing backend/system architecture technologies such as API style, database type, indexing strategy, caching, queues, sharding, load balancing, or consistency model.
 - Reviewing code, a patch, a pull request, or a git diff.
 - Writing or improving a PR description.
 - Reviewing API documentation, integration docs, endpoint specs, or SDK docs.
@@ -38,7 +39,8 @@ If a critical input is missing, state the assumption and continue with the stron
 Choose the workflow from the request:
 
 - If the user provides a system design or architecture proposal, use `references/system-design-checklist.md`.
-- If the user provides an architecture decision, ADR, RFC decision, or tradeoff analysis, use `references/architecture-decision-checklist.md`.
+- If the user asks to design or choose backend/system architecture involving networking, APIs, data modeling, database choice, indexing, caching, sharding, consistent hashing, CAP tradeoffs, capacity estimates, or technology selection, use `references/system-design-architecture-decision-playbook.md`.
+- If the user provides an architecture decision, ADR, RFC decision, or tradeoff analysis, use `references/architecture-decision-checklist.md`; combine it with `references/system-design-architecture-decision-playbook.md` when the decision is about backend/system architecture technology choices.
 - If the user provides code, a git diff, or asks for PR/code review, use `references/code-review-checklist.md`.
 - If the user asks for PR wording, use `references/pr-description-template.md`.
 - If the user provides API docs, endpoint specs, SDK docs, or integration docs, use `references/api-doc-review-checklist.md`.
@@ -80,6 +82,8 @@ For reviews, use:
 For PR descriptions, use the template in `references/pr-description-template.md`.
 
 For release notes, use the template in `references/release-note-template.md`.
+
+For backend architecture technology choices or "which tool should we use?" decisions, use the recommendation format in `references/system-design-architecture-decision-playbook.md`.
 
 For low-level design or coding guidance, use the response structure in `references/low-level-design-coding-principles.md` when the task is non-trivial.
 
