@@ -14,18 +14,24 @@ skills/<skill-name>/SKILL.md
 
 Bundled skill:
 
-- `engineering-workflow-reviewer`: reviews software engineering work before shipping, including system design, backend architecture technology choices, code review, low-level design/coding guidance, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
+- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, code review, low-level design/coding guidance, coding guidelines, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
 
-Low-level design guidance is bundled inside the reviewer skill at:
+Low-level design guidance is bundled inside the skill at:
 
 ```txt
-skills/engineering-workflow-reviewer/references/low-level-design-coding-principles.md
+skills/engineering-agent-skills/references/low-level-design-coding-principles.md
 ```
 
-System design architecture decision guidance is bundled inside the reviewer skill at:
+Coding guidelines are bundled inside the skill at:
 
 ```txt
-skills/engineering-workflow-reviewer/references/system-design-architecture-decision-playbook.md
+skills/engineering-agent-skills/references/coding-guidelines.md
+```
+
+System design architecture decision guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-architecture-decision-playbook.md
 ```
 
 ## Install All Skills
@@ -62,7 +68,7 @@ Install the skill for Codex without prompts:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
-  --skill engineering-workflow-reviewer \
+  --skill engineering-agent-skills \
   --agent codex \
   --yes
 ```
@@ -73,14 +79,14 @@ Install the skill for the detected agent in the current project:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
-  --skill engineering-workflow-reviewer
+  --skill engineering-agent-skills
 ```
 
 Install the skill for all supported agents without prompts:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
-  --skill engineering-workflow-reviewer \
+  --skill engineering-agent-skills \
   --agent '*' \
   --yes
 ```
@@ -89,7 +95,7 @@ Install by copying instead of symlinking:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
-  --skill engineering-workflow-reviewer \
+  --skill engineering-agent-skills \
   --agent '*' \
   --copy \
   --yes
@@ -99,7 +105,7 @@ Install globally:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
-  --skill engineering-workflow-reviewer \
+  --skill engineering-agent-skills \
   --global
 ```
 
@@ -109,7 +115,7 @@ Install all skills for all supported agents without prompts:
 npx skills add yongjiexue88/engineering-agent-skills --all
 ```
 
-Use `--agent codex`, `--agent claude-code`, `--agent cursor`, or another explicit agent only when you want to target one agent. No npm package is required for this repository. The Skills CLI reads the public GitHub repo, finds `skills/engineering-workflow-reviewer/SKILL.md`, and installs it into the target agent skill folder.
+Use `--agent codex`, `--agent claude-code`, `--agent cursor`, or another explicit agent only when you want to target one agent. No npm package is required for this repository. The Skills CLI reads the public GitHub repo, finds `skills/engineering-agent-skills/SKILL.md`, and installs it into the target agent skill folder.
 
 ## Install With This npm Package
 
@@ -122,7 +128,7 @@ npx engineering-agent-skills install
 Install the skill explicitly:
 
 ```bash
-npx engineering-agent-skills install --skill engineering-workflow-reviewer
+npx engineering-agent-skills install --skill engineering-agent-skills
 ```
 
 Install for Codex or another agent target:
@@ -157,13 +163,13 @@ Copy the skill folder:
 
 ```bash
 mkdir -p /path/to/project/.agents/skills
-cp -R skills/engineering-workflow-reviewer /path/to/project/.agents/skills/
+cp -R skills/engineering-agent-skills /path/to/project/.agents/skills/
 ```
 
 The installed skill should look like:
 
 ```txt
-/path/to/project/.agents/skills/engineering-workflow-reviewer/SKILL.md
+/path/to/project/.agents/skills/engineering-agent-skills/SKILL.md
 ```
 
 ## Invoke From an AI Agent
@@ -171,17 +177,18 @@ The installed skill should look like:
 Ask the agent to use the skill by name:
 
 ```txt
-Use the engineering-workflow-reviewer skill to review this PR.
+Use the engineering-agent-skills skill to review this PR.
 ```
 
 Examples:
 
 ```txt
-Use engineering-workflow-reviewer to review this architecture proposal.
-Use engineering-workflow-reviewer to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
-Use engineering-workflow-reviewer to write a PR description from this diff.
-Use engineering-workflow-reviewer to review these API docs before release.
-Use engineering-workflow-reviewer to turn these changes into release notes.
-Use engineering-workflow-reviewer before implementing this feature.
-Use engineering-workflow-reviewer to review state ownership and concurrency risks.
+Use engineering-agent-skills to review this architecture proposal.
+Use engineering-agent-skills to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
+Use engineering-agent-skills to write a PR description from this diff.
+Use engineering-agent-skills to review these API docs before release.
+Use engineering-agent-skills to turn these changes into release notes.
+Use engineering-agent-skills before implementing this feature.
+Use engineering-agent-skills to review state ownership and concurrency risks.
+Use engineering-agent-skills to apply coding guidelines while implementing this change.
 ```

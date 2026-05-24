@@ -33,7 +33,7 @@ Options:
 
 Examples:
   npx engineering-agent-skills install
-  npx engineering-agent-skills install --skill engineering-workflow-reviewer
+  npx engineering-agent-skills install --skill engineering-agent-skills
   npx engineering-agent-skills install --agent codex
   npx engineering-agent-skills install --agent claude-code
   npx engineering-agent-skills install --target .agents/skills
