@@ -50,12 +50,19 @@ List available skills:
 npx skills add yongjiexue88/engineering-agent-skills --list
 ```
 
-Install the skill for Codex in the current project:
+Install the skill for the detected agent in the current project:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills \
+  --skill engineering-workflow-reviewer
+```
+
+Install the skill for all supported agents:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
   --skill engineering-workflow-reviewer \
-  --agent codex
+  --agent '*'
 ```
 
 Install by copying instead of symlinking:
@@ -63,7 +70,7 @@ Install by copying instead of symlinking:
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
   --skill engineering-workflow-reviewer \
-  --agent codex \
+  --agent '*' \
   --copy
 ```
 
@@ -72,11 +79,16 @@ Install globally:
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
   --skill engineering-workflow-reviewer \
-  --agent codex \
   --global
 ```
 
-No npm package is required for this repository. The Skills CLI reads the public GitHub repo, finds `skills/engineering-workflow-reviewer/SKILL.md`, and installs it into the target agent skill folder.
+Install all skills for all supported agents without prompts:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --all
+```
+
+Use `--agent codex`, `--agent claude-code`, `--agent cursor`, or another explicit agent only when you want to target one agent. No npm package is required for this repository. The Skills CLI reads the public GitHub repo, finds `skills/engineering-workflow-reviewer/SKILL.md`, and installs it into the target agent skill folder.
 
 ## Install One Skill Manually
 
