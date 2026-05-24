@@ -1,0 +1,32 @@
+{
+  "name": "engineering-agent-skills",
+  "version": "0.1.0",
+  "description": "Reusable AI agent skills for software engineering workflows.",
+  "bin": {
+    "engineering-agent-skills": "bin/engineering-agent-skills.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "README.md",
+    "install.sh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yongjiexue88/engineering-agent-skills.git"
+  },
+  "homepage": "https://github.com/yongjiexue88/engineering-agent-skills#readme",
+  "bugs": {
+    "url": "https://github.com/yongjiexue88/engineering-agent-skills/issues"
+  },
+  "keywords": [
+    "agent-skills",
+    "ai-agent",
+    "codex",
+    "claude-code",
+    "software-engineering"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

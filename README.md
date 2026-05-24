@@ -103,6 +103,46 @@ npx skills add yongjiexue88/engineering-agent-skills --all
 
 Use `--agent codex`, `--agent claude-code`, `--agent cursor`, or another explicit agent only when you want to target one agent. No npm package is required for this repository. The Skills CLI reads the public GitHub repo, finds `skills/engineering-workflow-reviewer/SKILL.md`, and installs it into the target agent skill folder.
 
+## Install With This npm Package
+
+After this package is published to npm, install all bundled skills with:
+
+```bash
+npx engineering-agent-skills install
+```
+
+Install one skill:
+
+```bash
+npx engineering-agent-skills install --skill engineering-workflow-reviewer
+```
+
+Install for Codex or another agent target:
+
+```bash
+npx engineering-agent-skills install --agent codex
+npx engineering-agent-skills install --agent claude-code
+```
+
+Install into a custom target:
+
+```bash
+npx engineering-agent-skills install --target .agents/skills
+```
+
+List bundled skills:
+
+```bash
+npx engineering-agent-skills list
+```
+
+Publish the npm package:
+
+```bash
+npm login
+npm publish --access public
+```
+
 ## Install One Skill Manually
 
 Copy the skill folder you want:
