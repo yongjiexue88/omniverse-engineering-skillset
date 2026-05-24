@@ -1,13 +1,13 @@
 ---
 name: engineering-workflow-reviewer
-description: Use this skill to review software engineering work before shipping. It helps with system design review, code review, PR descriptions, architecture decisions, API documentation, debugging plans, release notes, missing tests, risk areas, and reviewer questions.
+description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, code review, low-level design, PR descriptions, architecture decisions, API documentation, debugging plans, release notes, missing tests, risk areas, and reviewer questions.
 ---
 
 # Engineering Workflow Reviewer
 
 ## Purpose
 
-Review software engineering work before it ships. Use this skill to find correctness gaps, production risks, unclear decisions, weak documentation, missing tests, and reviewer questions. Keep the review practical: identify what matters, explain why it matters, and propose concrete fixes.
+Review software engineering work before it ships and guide implementation quality when requested. Use this skill to find correctness gaps, production risks, unclear decisions, weak documentation, weak low-level design, missing tests, and reviewer questions. Keep the review practical: identify what matters, explain why it matters, and propose concrete fixes.
 
 ## When to use
 
@@ -19,6 +19,7 @@ Use this skill when the user asks for help with any of these tasks:
 - Reviewing API documentation, integration docs, endpoint specs, or SDK docs.
 - Reviewing a bug investigation, debugging plan, incident notes, or root-cause analysis.
 - Writing or improving release notes, changelog entries, or user-facing change summaries.
+- Guiding implementation, refactoring, module boundaries, state ownership, concurrency/resource safety, or testable low-level design.
 - Combining any of the above into one pre-ship review.
 
 ## Inputs to inspect
@@ -43,6 +44,7 @@ Choose the workflow from the request:
 - If the user provides API docs, endpoint specs, SDK docs, or integration docs, use `references/api-doc-review-checklist.md`.
 - If the user describes a bug, incident, failure mode, investigation, or debugging plan, use `references/debugging-checklist.md`.
 - If the user asks for release notes or a changelog entry, use `references/release-note-template.md`.
+- If the user asks for implementation, refactoring, class/module design, state ownership, dependency boundaries, concurrency/resource handling, or testable code structure, use `references/low-level-design-coding-principles.md`.
 - If the request is mixed, combine the relevant workflows and avoid duplicating findings.
 
 ## General review workflow
@@ -78,6 +80,8 @@ For reviews, use:
 For PR descriptions, use the template in `references/pr-description-template.md`.
 
 For release notes, use the template in `references/release-note-template.md`.
+
+For low-level design or coding guidance, use the response structure in `references/low-level-design-coding-principles.md` when the task is non-trivial.
 
 For small requests, keep the output shorter and include only the sections that add value.
 

@@ -2,27 +2,29 @@
 
 Reusable AI agent skills for software engineering workflows.
 
-This repository stores portable skill folders that can be copied into projects and used by AI agents during engineering review, writing, and release work.
+This repository stores a portable skill folder that can be copied into projects and used by AI agents during engineering review, writing, implementation guidance, and release work.
 
 ## Repository Layout
 
-Skills live under:
+The skill lives under:
 
 ```txt
 skills/<skill-name>/SKILL.md
 ```
 
-The first skill is:
+Bundled skill:
+
+- `engineering-workflow-reviewer`: reviews software engineering work before shipping, including system design, code review, low-level design/coding guidance, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
+
+Low-level design guidance is bundled inside the reviewer skill at:
 
 ```txt
-skills/engineering-workflow-reviewer/SKILL.md
+skills/engineering-workflow-reviewer/references/low-level-design-coding-principles.md
 ```
-
-`engineering-workflow-reviewer` helps review software engineering work before shipping, including system design, code review, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
 
 ## Install All Skills
 
-From this repository, copy every skill into another project's `.agents/skills` folder:
+From this repository, copy the bundled skill into another project's `.agents/skills` folder:
 
 ```bash
 ./install.sh
@@ -105,13 +107,13 @@ Use `--agent codex`, `--agent claude-code`, `--agent cursor`, or another explici
 
 ## Install With This npm Package
 
-After this package is published to npm, install all bundled skills with:
+Install the bundled skill from npm with:
 
 ```bash
 npx engineering-agent-skills install
 ```
 
-Install one skill:
+Install the skill explicitly:
 
 ```bash
 npx engineering-agent-skills install --skill engineering-workflow-reviewer
@@ -145,7 +147,7 @@ npm publish --access public
 
 ## Install One Skill Manually
 
-Copy the skill folder you want:
+Copy the skill folder:
 
 ```bash
 mkdir -p /path/to/project/.agents/skills
@@ -173,4 +175,6 @@ Use engineering-workflow-reviewer to review this architecture proposal.
 Use engineering-workflow-reviewer to write a PR description from this diff.
 Use engineering-workflow-reviewer to review these API docs before release.
 Use engineering-workflow-reviewer to turn these changes into release notes.
+Use engineering-workflow-reviewer before implementing this feature.
+Use engineering-workflow-reviewer to review state ownership and concurrency risks.
 ```

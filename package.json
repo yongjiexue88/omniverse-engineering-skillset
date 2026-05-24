@@ -1,6 +1,6 @@
 {
   "name": "engineering-agent-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reusable AI agent skills for software engineering workflows.",
   "bin": {
     "engineering-agent-skills": "bin/engineering-agent-skills.js"
