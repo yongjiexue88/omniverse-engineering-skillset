@@ -50,6 +50,17 @@ List available skills:
 npx skills add yongjiexue88/engineering-agent-skills --list
 ```
 
+Install the skill for Codex without prompts:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills \
+  --skill engineering-workflow-reviewer \
+  --agent codex \
+  --yes
+```
+
+Codex uses the universal `.agents/skills` location. If the CLI shows `Universal (.agents/skills) — always included`, Codex is already covered there; it may not appear again under “Additional agents.”
+
 Install the skill for the detected agent in the current project:
 
 ```bash
@@ -57,12 +68,13 @@ npx skills add yongjiexue88/engineering-agent-skills \
   --skill engineering-workflow-reviewer
 ```
 
-Install the skill for all supported agents:
+Install the skill for all supported agents without prompts:
 
 ```bash
 npx skills add yongjiexue88/engineering-agent-skills \
   --skill engineering-workflow-reviewer \
-  --agent '*'
+  --agent '*' \
+  --yes
 ```
 
 Install by copying instead of symlinking:
@@ -71,7 +83,8 @@ Install by copying instead of symlinking:
 npx skills add yongjiexue88/engineering-agent-skills \
   --skill engineering-workflow-reviewer \
   --agent '*' \
-  --copy
+  --copy \
+  --yes
 ```
 
 Install globally:
