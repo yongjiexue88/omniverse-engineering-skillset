@@ -48,7 +48,7 @@ Use this checklist for REST, GraphQL, RPC, webhook, SDK, CLI, and integration do
 - Are curl, SDK, and realistic examples included when useful?
 - Are concepts introduced before advanced details?
 - Are names consistent with product, API, and code terminology?
-- Are cross-links included for related APIs, guides, schemas, and changelogs?
+- Are cross-links included for related APIs, guides, and schemas?
 
 ## Testing and Reliability
 
@@ -63,5 +63,4 @@ Use this checklist for REST, GraphQL, RPC, webhook, SDK, CLI, and integration do
 - Does the doc warn about customer-visible behavior changes?
 - Are data retention, privacy, and compliance concerns addressed?
 - Are support escalation paths or troubleshooting steps included?
-- Are release notes or changelog entries linked when needed?
 - Is the final doc concise enough to be usable under pressure?

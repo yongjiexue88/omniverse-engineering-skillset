@@ -1,6 +1,6 @@
 ---
 name: engineering-agent-skills
-description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, backend architecture technology choices, code review, coding guidelines, low-level design, PR descriptions, architecture decisions, API documentation, debugging plans, release notes, missing tests, risk areas, and reviewer questions.
+description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, backend architecture technology choices, code review, coding guidelines, low-level design, architecture decisions, API documentation, debugging plans, missing tests, risk areas, and reviewer questions.
 ---
 
 # Engineering Agent Skills
@@ -17,10 +17,8 @@ Use this skill when the user asks for help with any of these tasks:
 - Choosing backend/system architecture technologies such as API style, database type, indexing strategy, caching, queues, sharding, load balancing, or consistency model.
 - Reviewing code, a patch, a pull request, or a git diff.
 - Writing, reviewing, or refactoring code while avoiding overcomplication, broad edits, hidden assumptions, or unverifiable success criteria.
-- Writing or improving a PR description.
 - Reviewing API documentation, integration docs, endpoint specs, or SDK docs.
 - Reviewing a bug investigation, debugging plan, incident notes, or root-cause analysis.
-- Writing or improving release notes, changelog entries, or user-facing change summaries.
 - Guiding implementation, refactoring, module boundaries, state ownership, concurrency/resource safety, or testable low-level design.
 - Combining any of the above into one pre-ship review.
 
@@ -43,10 +41,8 @@ Choose the workflow from the request:
 - If the user asks to design or choose backend/system architecture involving networking, APIs, data modeling, database choice, indexing, caching, sharding, consistent hashing, CAP tradeoffs, capacity estimates, or technology selection, use `references/system-design-architecture-decision-playbook.md`.
 - If the user provides an architecture decision, ADR, RFC decision, or tradeoff analysis, use `references/architecture-decision-checklist.md`; combine it with `references/system-design-architecture-decision-playbook.md` when the decision is about backend/system architecture technology choices.
 - If the user provides code, a git diff, or asks for PR/code review, use `references/code-review-checklist.md`; combine it with `references/coding-guidelines.md` when the review should check simplicity, surgical scope, assumptions, or verification criteria.
-- If the user asks for PR wording, use `references/pr-description-template.md`.
 - If the user provides API docs, endpoint specs, SDK docs, or integration docs, use `references/api-doc-review-checklist.md`.
 - If the user describes a bug, incident, failure mode, investigation, or debugging plan, use `references/debugging-checklist.md`.
-- If the user asks for release notes or a changelog entry, use `references/release-note-template.md`.
 - If the user asks for implementation, refactoring, class/module design, state ownership, dependency boundaries, concurrency/resource handling, or testable code structure, use `references/low-level-design-coding-principles.md`; combine it with `references/coding-guidelines.md` for behavioral coding guardrails.
 - If the user specifically asks for coding guidelines, avoiding LLM coding mistakes, simplicity, surgical changes, explicit assumptions, or verifiable success criteria, use `references/coding-guidelines.md`.
 - If the request is mixed, combine the relevant workflows and avoid duplicating findings.
@@ -80,10 +76,6 @@ For reviews, use:
 
 ## Recommendation
 ```
-
-For PR descriptions, use the template in `references/pr-description-template.md`.
-
-For release notes, use the template in `references/release-note-template.md`.
 
 For backend architecture technology choices or "which tool should we use?" decisions, use the recommendation format in `references/system-design-architecture-decision-playbook.md`.
 

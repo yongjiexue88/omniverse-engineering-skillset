@@ -2,7 +2,7 @@
 
 Reusable AI agent skills for software engineering workflows.
 
-This repository stores a portable skill folder that can be copied into projects and used by AI agents during engineering review, writing, implementation guidance, and release work.
+This repository stores a portable skill folder that can be copied into projects and used by AI agents during engineering review, writing, and implementation guidance.
 
 ## Repository Layout
 
@@ -14,7 +14,7 @@ skills/<skill-name>/SKILL.md
 
 Bundled skill:
 
-- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, code review, low-level design/coding guidance, coding guidelines, PR descriptions, architecture decisions, API documentation, debugging plans, and release notes.
+- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, code review, low-level design/coding guidance, coding guidelines, architecture decisions, API documentation, and debugging plans.
 
 Low-level design guidance is bundled inside the skill at:
 
@@ -185,9 +185,7 @@ Examples:
 ```txt
 Use engineering-agent-skills to review this architecture proposal.
 Use engineering-agent-skills to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
-Use engineering-agent-skills to write a PR description from this diff.
 Use engineering-agent-skills to review these API docs before release.
-Use engineering-agent-skills to turn these changes into release notes.
 Use engineering-agent-skills before implementing this feature.
 Use engineering-agent-skills to review state ownership and concurrency risks.
 Use engineering-agent-skills to apply coding guidelines while implementing this change.

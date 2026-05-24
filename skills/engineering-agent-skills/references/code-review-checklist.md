@@ -68,11 +68,11 @@ Use this checklist for code snippets, pull requests, patches, and git diffs.
 
 ## Documentation and Product Impact
 
-- Do docs, examples, changelogs, API references, or migration guides need updates?
+- Do docs, examples, API references, or migration guides need updates?
 - Is user-facing copy clear and consistent?
 - Are support, rollout, or operational notes needed?
 - Are behavior changes visible to customers or downstream teams?
-- Is there a release note or PR description gap?
+- Is there a documentation or rollout communication gap?
 
 ## Review Output Severity
 
