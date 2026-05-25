@@ -52,6 +52,18 @@ Large blob storage and multi-device file sync guidance is bundled inside the ski
 skills/engineering-agent-skills/references/system-design-large-blob-file-sync.md
 ```
 
+Large blob media upload and adaptive streaming guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-large-blob-media-streaming.md
+```
+
+Distributed job scheduler guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-distributed-job-scheduler.md
+```
+
 Read-heavy local search and review aggregate guidance is bundled inside the skill at:
 
 ```txt
@@ -80,6 +92,78 @@ Hybrid follower timeline fan-out guidance is bundled inside the skill at:
 
 ```txt
 skills/engineering-agent-skills/references/system-design-hybrid-feed-fanout-timeline.md
+```
+
+Media-heavy social feed guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-media-heavy-social-feed.md
+```
+
+External data monitoring and alerting guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-external-data-monitoring-alerts.md
+```
+
+Streaming Top-K windowed aggregation guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-streaming-top-k-windowed-aggregation.md
+```
+
+Real-time dispatch and provider matching guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-realtime-dispatch-provider-matching.md
+```
+
+Market-data proxy and high-consistency order state guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-market-data-proxy-order-state.md
+```
+
+High-contention bidding and real-time auction update guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-high-contention-bidding-realtime.md
+```
+
+Offline-first activity tracking guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-offline-first-activity-tracking.md
+```
+
+High-scale live comment streaming guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-live-comment-streaming.md
+```
+
+Collaborative editing convergence guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-collaborative-editing-convergence.md
+```
+
+Distributed cache guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-distributed-cache.md
+```
+
+Distributed rate limiter guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-distributed-rate-limiter.md
+```
+
+Custom inverted index search guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-custom-inverted-index-search.md
 ```
 
 Local availability and strong inventory/reservation consistency guidance is bundled inside the skill at:
@@ -259,11 +343,25 @@ Use engineering-agent-skills to review this architecture proposal.
 Use engineering-agent-skills to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
 Use engineering-agent-skills to recognize system design patterns like long-running tasks, large blobs, scaling reads/writes, contention, workflows, or real-time updates.
 Use engineering-agent-skills to design large file upload, signed URL transfer, and multi-device file sync.
+Use engineering-agent-skills to design large video upload with async processing and adaptive streaming.
+Use engineering-agent-skills to design a distributed job scheduler with at-least-once execution.
 Use engineering-agent-skills to design read-heavy local business search with review aggregates.
 Use engineering-agent-skills to design durable real-time messaging with offline delivery.
 Use engineering-agent-skills to design sandboxed long-running task execution for online code judging.
 Use engineering-agent-skills to design a recommendation feed with reciprocal matching.
 Use engineering-agent-skills to design a hybrid follower timeline with celebrity fan-out handling.
+Use engineering-agent-skills to design a media-heavy social feed with async video processing and feed fan-out.
+Use engineering-agent-skills to design an external price/data monitoring service with priority crawling and alerts.
+Use engineering-agent-skills to design streaming Top-K rankings with precomputed time windows.
+Use engineering-agent-skills to design real-time dispatch with geospatial provider matching and reservations.
+Use engineering-agent-skills to design a market-data proxy with SSE fan-out and high-consistency order state.
+Use engineering-agent-skills to design an auction bidding system with ordered processing and live highest-bid updates.
+Use engineering-agent-skills to design offline-first GPS activity tracking with chunked sync.
+Use engineering-agent-skills to design high-scale live comments with SSE fan-out and reconnect replay.
+Use engineering-agent-skills to design collaborative editing with OT/CRDT convergence.
+Use engineering-agent-skills to design a distributed cache with consistent hashing and hot-key protection.
+Use engineering-agent-skills to design a distributed rate limiter for API gateway traffic protection.
+Use engineering-agent-skills to design custom inverted-index search with hot/cold tiers.
 Use engineering-agent-skills to design local inventory availability with strong reservation consistency.
 Use engineering-agent-skills to design scarce inventory reservation with TTL holds, payment finalization, and waiting-room admission control.
 Use engineering-agent-skills to design a high-scale read-optimized feed with cursor pagination and feed projections.
