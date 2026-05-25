@@ -1,12 +1,16 @@
 {
   "name": "engineering-agent-skills",
-  "version": "0.1.2",
-  "description": "Reusable AI agent skills for software engineering workflows.",
+  "version": "0.1.3",
+  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
   "bin": {
     "engineering-agent-skills": "bin/engineering-agent-skills.js"
   },
   "files": [
     "bin",
+    "scripts",
     "skills",
     "README.md",
     "install.sh"
