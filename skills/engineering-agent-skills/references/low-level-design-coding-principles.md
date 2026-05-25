@@ -22,7 +22,7 @@ Use this reference when the user asks to:
 - design classes, modules, services, controllers, or handlers
 - add API behavior
 - model business rules or state transitions
-- review code quality
+- improve code structure
 - make code easier to extend
 - reason about concurrency, queues, locks, workers, pools, or shared state
 

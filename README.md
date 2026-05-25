@@ -14,7 +14,7 @@ skills/<skill-name>/SKILL.md
 
 Bundled skill:
 
-- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, code review, low-level design/coding guidance, coding guidelines, commit messages, architecture decisions, API documentation, and debugging plans.
+- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, low-level design/coding guidance, coding guidelines, commit messages, architecture decisions, and API documentation.
 
 Low-level design guidance is bundled inside the skill at:
 
@@ -189,7 +189,7 @@ The installed skill should look like:
 Ask the agent to use the skill by name:
 
 ```txt
-Use the engineering-agent-skills skill to review this PR.
+Use the engineering-agent-skills skill to review this architecture proposal.
 ```
 
 Examples:

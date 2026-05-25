@@ -32,7 +32,7 @@ Use this checklist for REST, GraphQL, RPC, webhook, SDK, CLI, and integration do
 - Does the doc distinguish validation errors, auth errors, rate limits, conflicts, and system failures?
 - Are transient vs permanent failures clear?
 - Are examples included for common errors?
-- Is support/debugging information provided without leaking sensitive internals?
+- Is support/troubleshooting information provided without leaking sensitive internals?
 
 ## Compatibility and Versioning
 
