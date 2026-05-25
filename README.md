@@ -14,7 +14,7 @@ skills/<skill-name>/SKILL.md
 
 Bundled skill:
 
-- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, low-level design/coding guidance, coding guidelines, commit messages, architecture decisions, and API documentation.
+- `engineering-agent-skills`: reviews software engineering work before shipping, including system design, backend architecture technology choices, system design pattern recognition, low-level design/coding guidance, coding guidelines, commit messages, architecture decisions, and API documentation.
 
 Low-level design guidance is bundled inside the skill at:
 
@@ -44,6 +44,66 @@ System design pattern recognition guidance is bundled inside the skill at:
 
 ```txt
 skills/engineering-agent-skills/references/system-design-pattern-recognition-playbook.md
+```
+
+Large blob storage and multi-device file sync guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-large-blob-file-sync.md
+```
+
+Read-heavy local search and review aggregate guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-local-search-review-aggregates.md
+```
+
+Durable real-time messaging guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-durable-real-time-messaging.md
+```
+
+Sandboxed long-running task execution guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-sandboxed-long-running-task-execution.md
+```
+
+Recommendation feed and reciprocal action guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-recommendation-feed-reciprocal-actions.md
+```
+
+Hybrid follower timeline fan-out guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-hybrid-feed-fanout-timeline.md
+```
+
+Local availability and strong inventory/reservation consistency guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-local-availability-inventory-consistency.md
+```
+
+Scarce inventory reservation guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-scarce-inventory-reservation-playbook.md
+```
+
+High-scale feed aggregation guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-feed-aggregation-playbook.md
+```
+
+Read-heavy immutable mapping guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-read-heavy-immutable-mapping-playbook.md
 ```
 
 ## Install All Skills
@@ -198,6 +258,16 @@ Examples:
 Use engineering-agent-skills to review this architecture proposal.
 Use engineering-agent-skills to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
 Use engineering-agent-skills to recognize system design patterns like long-running tasks, large blobs, scaling reads/writes, contention, workflows, or real-time updates.
+Use engineering-agent-skills to design large file upload, signed URL transfer, and multi-device file sync.
+Use engineering-agent-skills to design read-heavy local business search with review aggregates.
+Use engineering-agent-skills to design durable real-time messaging with offline delivery.
+Use engineering-agent-skills to design sandboxed long-running task execution for online code judging.
+Use engineering-agent-skills to design a recommendation feed with reciprocal matching.
+Use engineering-agent-skills to design a hybrid follower timeline with celebrity fan-out handling.
+Use engineering-agent-skills to design local inventory availability with strong reservation consistency.
+Use engineering-agent-skills to design scarce inventory reservation with TTL holds, payment finalization, and waiting-room admission control.
+Use engineering-agent-skills to design a high-scale read-optimized feed with cursor pagination and feed projections.
+Use engineering-agent-skills to design a URL shortener or read-heavy immutable public-key lookup service.
 Use engineering-agent-skills to review these API docs before release.
 Use engineering-agent-skills to write a commit message for this diff.
 Use engineering-agent-skills before implementing this feature.

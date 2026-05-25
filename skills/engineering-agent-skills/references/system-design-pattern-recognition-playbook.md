@@ -21,6 +21,7 @@ Use it when a design scenario, RFC, architecture proposal, or implementation pla
 - [Managing Long-Running Tasks](#managing-long-running-tasks)
 - [Handling Large Blobs](#handling-large-blobs)
 - [Scaling Reads](#scaling-reads)
+- [Specific System Design Case References](#specific-system-design-case-references)
 - [Multi-Step Processes](#multi-step-processes)
 - [Scaling Writes](#scaling-writes)
 - [Dealing With Contention](#dealing-with-contention)
@@ -56,10 +57,18 @@ If several apply, name the primary pattern and the supporting patterns. For exam
 |---|---|---|---|
 | Slow work, request timeouts, CPU/GPU-heavy tasks, bulk exports | Long-running tasks | Return job ID, queue work, process in workers, expose status | Synchronous request/response |
 | Files larger than normal API payloads, videos/images/docs, high transfer cost | Large blobs | Metadata in DB, bytes in object storage, presigned uploads, CDN downloads | Proxying all bytes through app servers |
+| Dropbox-style file sync, resumable large uploads, multi-device file state | Large blobs + real-time updates | Direct-to-object-storage multipart upload, durable change feed, push plus polling sync | Trusting client completion or timestamp-only sync |
 | Read/write ratio is high, hot public data, DB read load rising | Scaling reads | Indexes/query tuning, denormalization, read replicas, cache/CDN | Sharding or cache before fixing queries |
+| Local search combines text, geo, category, and ratings | Scaling reads + geo search + derived aggregates | Spatial/text indexes, precomputed rating aggregates, DB uniqueness constraints | Read-time aggregate joins or Elasticsearch as source of truth |
+| Chat or messaging must work while users are offline | Real-time updates + durable delivery | Persist message and per-recipient inbox before WebSocket/pub-sub delivery | Treating sockets or Redis Pub/Sub as durable source of truth |
+| User-submitted code/tasks can be slow or unsafe | Long-running tasks + sandboxing | Durable job state, queue, isolated workers, polling status | Running untrusted work in API servers |
 | Order/payment/onboarding flow has retries, waiting, compensation | Multi-step processes | Durable workflow, event log, or state-machine backed by storage | Hand-rolled fragile orchestration in API servers |
 | High write TPS, bursts, counters, telemetry, likes, location updates | Scaling writes | Measure, partition, queue bursts, shed low-value writes, batch/aggregate | Queue as a permanent fix for underprovisioned steady-state writes |
 | Double-booking, double-spend, inventory conflicts, hot resources | Contention | Keep contended data together, transaction + lock/OCC/reservation | Distributed locks or 2PC before single-DB options |
+| Local availability plus inventory/order correctness | Scaling reads + contention | Fast advisory availability reads, shared serviceability, authoritative transactional reservation | Replica/cache reads as final truth or distributed locks before single-DB options |
+| Scarce inventory under launch traffic | Contention + read scaling + admission control | Cache/search discovery, TTL holds, DB finalization, waiting room when demand exceeds capacity | Real-time updates as a substitute for admission control |
+| Candidate feed plus mutual match/follow-back action | Scaling reads + contention | Precomputed feed cache plus indexed refill; atomic canonical pair-key action checks | Check-then-write reciprocal matching |
+| Follower timeline with celebrity producers | Scaling reads + fan-out | Hybrid fan-out: precompute normal producers, merge high-follower producers at read time | One global fan-out strategy for every account |
 | Chat, live dashboards, presence, progress, collaboration | Real-time updates | Choose polling/SSE/WebSocket/WebRTC by latency and directionality | WebSocket for every "live" feature |
 
 ## Managing Long-Running Tasks
@@ -186,6 +195,10 @@ Maintain statuses such as:
 - Compliance environments where bytes must pass through certified inspection infrastructure.
 - UX that needs immediate content-derived feedback and cannot tolerate async processing.
 
+For Dropbox-style file sharing/sync, resumable multipart upload, signed URL
+security, client-side chunking, CDN file delivery, or durable sync feeds, load
+`system-design-large-blob-file-sync.md`.
+
 ## Scaling Reads
 
 ### Recognition Signals
@@ -255,6 +268,21 @@ Useful patterns:
 - Cache invalidation races where stale data is written after deletion.
 - CDN invalidation propagation delays.
 - Caching personalized data with poor hit rates and privacy risk.
+
+## Specific System Design Case References
+
+Load these focused references only when the scenario matches:
+
+- `system-design-large-blob-file-sync.md`: large file upload/download, file storage, file sharing, Dropbox-style multi-device sync, object/blob storage, signed URLs, multipart/resumable upload, CDN file delivery, client-side chunking/deduplication, and durable change feeds for sync.
+- `system-design-local-search-review-aggregates.md`: local business search, Yelp-style discovery, geo/text/category search, reviews, derived rating aggregates, one-review-per-user constraints, PostGIS/trigram search, Elasticsearch/OpenSearch read models, named-location polygons, and precomputed location membership.
+- `system-design-durable-real-time-messaging.md`: chat, durable messaging, WebSockets, offline message delivery, per-recipient inboxes, client acknowledgements, reconnect sync, multi-device delivery state, pub/sub socket routing, and media attachments.
+- `system-design-sandboxed-long-running-task-execution.md`: online compilers, code judging, CI/build runners, untrusted sandboxing, worker queues, polling status APIs, long-running submission states, Redis sorted-set leaderboards, and rebuildable materialized ranking views.
+- `system-design-recommendation-feed-reciprocal-actions.md`: recommendation feeds, Tinder-style candidate stacks, swiping/matching, follow-back/friend-match flows, repeated-candidate exclusion, geospatial candidate retrieval, feed cache refill, atomic pair-key matching, and Bloom filters for large action histories.
+- `system-design-hybrid-feed-fanout-timeline.md`: social timelines, follower feeds, notification inboxes, fan-out-on-write/read, hybrid fan-out, celebrity producer handling, follow graph adjacency storage, post cache hydration, and timeline materialization.
+- `system-design-local-availability-inventory-consistency.md`: local availability, serviceability/Nearby lookup, inventory, stock, booking, reservations, ticket seats, pickup/delivery availability, overselling, double-booking, and strong final reservation consistency.
+- `system-design-scarce-inventory-reservation-playbook.md`: scarce inventory, high-contention booking, checkout holds, TTL reservations, ticket/product drops, seat maps, waiting rooms, admission control, payment finalization, and search under booking contention.
+- `system-design-feed-aggregation-playbook.md`: high-scale feeds, content aggregation, feed delivery, infinite scroll, ordered activity/news/product/event feeds, cursor pagination, precomputed feed projections, CDC-driven cache updates, and internal media handling for feeds.
+- `system-design-read-heavy-immutable-mapping-playbook.md`: URL shorteners, short codes, low-latency redirects, invite/share/referral links, compact public identifiers, mostly immutable `public_key -> target_value` mappings, cache-first lookups, redirect semantics, TTL alignment, and ID generation tradeoffs.
 
 ## Multi-Step Processes
 
@@ -510,17 +538,30 @@ Use consistent hashing when connection-associated state is expensive and should 
 
 ## Pattern Combinations
 
+- Scaling reads plus geo search plus derived aggregates: use spatial/text indexes for search, precompute rating/count fields, enforce review uniqueness in the primary DB, and treat Elasticsearch/OpenSearch as a read model. For Yelp-style local search, load `system-design-local-search-review-aggregates.md`.
+- Real-time updates plus durable delivery: persist message and per-recipient delivery records before socket/pub-sub delivery, then use acknowledgements and reconnect sync for correctness. For chat and offline messaging, load `system-design-durable-real-time-messaging.md`.
+- Long-running tasks plus sandboxing: create durable job state, queue work for backpressure, execute in isolated workers with resource limits, and expose polling status. For online judges, code execution, CI runners, or live leaderboards, load `system-design-sandboxed-long-running-task-execution.md`.
 - Large blob upload plus long-running task: direct upload to object storage, then storage event triggers transcoding, scanning, indexing, or thumbnail workers.
 - Long-running task plus real-time updates: workers update progress in DB/cache; clients use polling, long polling, SSE, or WebSocket for status.
+- Scaling reads plus reciprocal contention: use a low-latency candidate feed path, but process likes/follows/matches with idempotent atomic pair-key writes. For Tinder-style or mutual-action feeds, load `system-design-recommendation-feed-reciprocal-actions.md`.
+- Scaling reads plus fan-out: precompute timelines for normal producers, merge high-follower producers at read time, and monitor fan-out queue lag as freshness. For follower timelines, load `system-design-hybrid-feed-fanout-timeline.md`.
 - Multi-step process plus contention: workflow coordinates reservations, payments, fulfillment, and compensations, while single-DB locks/OCC protect scarce resources.
+- Scaling reads plus contention: use advisory cached/replica reads for availability, then revalidate and reserve on the authoritative write path. For location-based inventory, booking, pickup/delivery availability, serviceability, or double-booking risk, load `system-design-local-availability-inventory-consistency.md`.
+- Contention plus admission control: for scarce inventory launches where demand exceeds capacity, throttle entry to the booking flow with waiting rooms/admission tokens, then use TTL holds and authoritative DB finalization. Load `system-design-scarce-inventory-reservation-playbook.md`.
 - Scaling writes plus contention: partition broad writes, but serialize or lock true hot resources.
 - Scaling reads plus real-time updates: cache public state, but use event streams to invalidate or push changes where freshness matters.
 - Large blobs plus scaling reads: store bytes in object storage, serve frequently accessed files through CDN with signed URLs and range requests.
+- Large blobs plus real-time updates: use push notifications to wake clients after metadata changes, but rely on cursor-based polling/replay from a durable change feed for missed sync events.
 - Scaling writes plus real-time updates: aggregate writes before broadcasting, otherwise fan-in/fan-out can overwhelm the system.
 
 ## Common Mistakes
 
 - Choosing WebSocket just because the feature says "real-time."
+- Treating WebSockets or Redis Pub/Sub as durable message storage.
+- Running untrusted or expensive user-submitted work inside API servers.
+- Calculating hot review/rating aggregates on every search request.
+- Detecting reciprocal matches with check-then-write logic.
+- Using one fan-out strategy for normal users and celebrity producers.
 - Adding Redis before proving a read bottleneck or defining invalidation.
 - Using a queue to hide steady-state write overload.
 - Sharding before fixing schema, indexes, hardware, and access patterns.
