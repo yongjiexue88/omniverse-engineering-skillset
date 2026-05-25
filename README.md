@@ -100,10 +100,28 @@ Media-heavy social feed guidance is bundled inside the skill at:
 skills/engineering-agent-skills/references/system-design-media-heavy-social-feed.md
 ```
 
+Fault-tolerant polite web crawling guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-web-crawler-pipeline.md
+```
+
 External data monitoring and alerting guidance is bundled inside the skill at:
 
 ```txt
 skills/engineering-agent-skills/references/system-design-external-data-monitoring-alerts.md
+```
+
+Real-time clickstream aggregation guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-realtime-clickstream-aggregation.md
+```
+
+Metrics monitoring platform guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-metrics-monitoring-platform.md
 ```
 
 Streaming Top-K windowed aggregation guidance is bundled inside the skill at:
@@ -122,6 +140,18 @@ Market-data proxy and high-consistency order state guidance is bundled inside th
 
 ```txt
 skills/engineering-agent-skills/references/system-design-market-data-proxy-order-state.md
+```
+
+Financial workflow state machine guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-financial-workflow-state-machines.md
+```
+
+LLM serving, streaming, and GPU scheduling guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-llm-serving-streaming-gpu-scheduling.md
 ```
 
 High-contention bidding and real-time auction update guidance is bundled inside the skill at:
@@ -351,10 +381,15 @@ Use engineering-agent-skills to design sandboxed long-running task execution for
 Use engineering-agent-skills to design a recommendation feed with reciprocal matching.
 Use engineering-agent-skills to design a hybrid follower timeline with celebrity fan-out handling.
 Use engineering-agent-skills to design a media-heavy social feed with async video processing and feed fan-out.
+Use engineering-agent-skills to design a fault-tolerant polite web crawler with URL frontier dedupe and robots.txt handling.
 Use engineering-agent-skills to design an external price/data monitoring service with priority crawling and alerts.
+Use engineering-agent-skills to design real-time clickstream aggregation with dedupe, event-time windows, and OLAP dashboards.
+Use engineering-agent-skills to design a metrics monitoring platform with cardinality control, rollups, and alerting.
 Use engineering-agent-skills to design streaming Top-K rankings with precomputed time windows.
 Use engineering-agent-skills to design real-time dispatch with geospatial provider matching and reservations.
 Use engineering-agent-skills to design a market-data proxy with SSE fan-out and high-consistency order state.
+Use engineering-agent-skills to design a financial payment workflow with idempotency, auditability, webhooks, and reconciliation.
+Use engineering-agent-skills to design LLM serving with SSE token streaming, GPU scheduling, and context-cost control.
 Use engineering-agent-skills to design an auction bidding system with ordered processing and live highest-bid updates.
 Use engineering-agent-skills to design offline-first GPS activity tracking with chunked sync.
 Use engineering-agent-skills to design high-scale live comments with SSE fan-out and reconnect replay.
