@@ -1,6 +1,6 @@
 ---
 name: engineering-agent-skills
-description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, backend architecture technology choices, code review, coding guidelines, low-level design, commit messages, architecture decisions, API documentation, debugging plans, missing tests, risk areas, and reviewer questions.
+description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, backend architecture technology choices, system design pattern recognition, code review, coding guidelines, low-level design, commit messages, architecture decisions, API documentation, debugging plans, missing tests, risk areas, and reviewer questions.
 ---
 
 # Engineering Agent Skills
@@ -15,6 +15,7 @@ Use this skill when the user asks for help with any of these tasks:
 
 - Reviewing a system design, architecture proposal, design doc, ADR, RFC, or technical plan.
 - Choosing backend/system architecture technologies such as API style, database type, indexing strategy, caching, queues, sharding, load balancing, or consistency model.
+- Recognizing common system design patterns such as long-running tasks, large blob handling, read scaling, write scaling, multi-step workflows, contention handling, or real-time updates.
 - Reviewing code, a patch, a pull request, or a git diff.
 - Writing, reviewing, or refactoring code while avoiding overcomplication, broad edits, hidden assumptions, or unverifiable success criteria.
 - Writing or improving a Git commit message.
@@ -40,6 +41,7 @@ Choose the workflow from the request:
 
 - If the user provides a system design or architecture proposal, use `references/system-design-checklist.md`.
 - If the user asks to design or choose backend/system architecture involving networking, APIs, data modeling, database choice, indexing, caching, sharding, consistent hashing, CAP tradeoffs, capacity estimates, or technology selection, use `references/system-design-architecture-decision-playbook.md`.
+- If the user asks for system design pattern recognition, architecture pattern selection, or a design involving long-running tasks, large blobs, read scaling, write scaling, multi-step processes/workflows, contention, or real-time updates, use `references/system-design-pattern-recognition-playbook.md`; combine it with `references/system-design-architecture-decision-playbook.md` when technology choices or scaling paths need deeper justification.
 - If the user provides an architecture decision, ADR, RFC decision, or tradeoff analysis, use `references/architecture-decision-checklist.md`; combine it with `references/system-design-architecture-decision-playbook.md` when the decision is about backend/system architecture technology choices.
 - If the user provides code, a git diff, or asks for PR/code review, use `references/code-review-checklist.md`; combine it with `references/coding-guidelines.md` when the review should check simplicity, surgical scope, assumptions, or verification criteria.
 - If the user asks for a Git commit message, commit wording, or commit review, use `references/commit-message-guidelines.md`.
@@ -80,6 +82,8 @@ For reviews, use:
 ```
 
 For backend architecture technology choices or "which tool should we use?" decisions, use the recommendation format in `references/system-design-architecture-decision-playbook.md`.
+
+For common system design pattern recognition, architecture pattern selection, or designs involving long-running tasks, large blobs, read scaling, write scaling, multi-step workflows, contention, or real-time updates, use the response shape in `references/system-design-pattern-recognition-playbook.md`.
 
 For Git commit messages, use the format and rules in `references/commit-message-guidelines.md`.
 

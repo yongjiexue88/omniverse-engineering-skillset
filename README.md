@@ -40,6 +40,12 @@ System design architecture decision guidance is bundled inside the skill at:
 skills/engineering-agent-skills/references/system-design-architecture-decision-playbook.md
 ```
 
+System design pattern recognition guidance is bundled inside the skill at:
+
+```txt
+skills/engineering-agent-skills/references/system-design-pattern-recognition-playbook.md
+```
+
 ## Install All Skills
 
 From this repository, copy the bundled skill into another project's `.agents/skills` folder:
@@ -191,6 +197,7 @@ Examples:
 ```txt
 Use engineering-agent-skills to review this architecture proposal.
 Use engineering-agent-skills to decide between REST, GraphQL, gRPC, WebSocket, SQL, NoSQL, Redis, queues, or sharding.
+Use engineering-agent-skills to recognize system design patterns like long-running tasks, large blobs, scaling reads/writes, contention, workflows, or real-time updates.
 Use engineering-agent-skills to review these API docs before release.
 Use engineering-agent-skills to write a commit message for this diff.
 Use engineering-agent-skills before implementing this feature.

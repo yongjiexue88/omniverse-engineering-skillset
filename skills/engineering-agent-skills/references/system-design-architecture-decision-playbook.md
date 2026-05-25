@@ -22,8 +22,9 @@ Use this reference when the user asks about:
 - Reviewing whether a project should use REST, GraphQL, gRPC, WebSocket, SSE, WebRTC, Redis, CDN, SQL, NoSQL, sharding, queues, or distributed cache.
 - Evaluating performance, scalability, consistency, latency, or reliability tradeoffs.
 - Choosing indexes, pagination, caching strategy, shard key, database type, or load balancing strategy.
+- Recognizing common system design patterns; for long-running tasks, large blobs, scaling reads, scaling writes, multi-step workflows, contention, or real-time updates, also load `system-design-pattern-recognition-playbook.md`.
 - Estimating whether the current scale justifies more infrastructure.
-- Preparing system design interview answers.
+- Preparing practical system design recommendations.
 - Reviewing a PR/design and asking: "Is this over-engineered?" or "What is missing?"
 
 ## Core Principle
@@ -205,6 +206,20 @@ Use this output structure:
 | Audio/video | WebRTC | Normal chat/CRUD -> WebSocket/REST |
 | Load balancing HTTP APIs | L7 LB | Raw TCP/WebSocket-heavy persistent connections -> L4 LB |
 | Failure handling | Timeout + retry/backoff + idempotency + circuit breaker | Never retry non-idempotent writes blindly |
+
+## Pattern Recognition Add-On
+
+For recurring system design problem shapes, use `system-design-pattern-recognition-playbook.md` alongside this playbook.
+
+| Problem Shape | Pattern To Check First |
+|---|---|
+| Work takes longer than the request should remain open | Managing long-running tasks |
+| Files are large enough that app servers become byte pipes | Handling large blobs |
+| Read traffic dominates writes or many users read the same data | Scaling reads |
+| A business process spans steps, services, callbacks, waits, or compensation | Multi-step processes |
+| Sustained or bursty writes exceed one component's limits | Scaling writes |
+| Many actors compete for one scarce resource or invariant | Dealing with contention |
+| Clients need low-latency server-to-client updates | Real-time updates |
 
 ## Networking and Protocol Decisions
 
@@ -512,7 +527,7 @@ Use cursor pagination when:
 
 ### Versioning
 
-Prefer URL versioning for public/interview-friendly APIs:
+Prefer URL versioning for public APIs:
 
 - `/v1/events`
 - `/v1/users`
@@ -1070,7 +1085,7 @@ Use them to avoid premature over-engineering.
 
 ### Database Scale
 
-A single well-tuned relational DB can often handle much more than candidates assume.
+A single well-tuned relational DB can often handle much more than teams assume.
 
 Usually okay with one relational DB plus indexes/replicas when:
 
@@ -1208,9 +1223,9 @@ I would start with ...
 - Monitoring:
 ```
 
-## Mini Prompt for Using This Reference
+## Agent Instruction Snippet
 
-Use this prompt with a coding agent:
+Use this instruction with a coding agent:
 
 ```txt
 Use the engineering-agent-skills skill with the system design architecture decision playbook.

@@ -193,7 +193,7 @@ Use private/internal fields where possible. Let methods enforce invariants inste
 
 Use interfaces or boundaries when callers should not care about implementation details.
 
-Good candidates:
+Good fits:
 
 - payment provider
 - pricing strategy
