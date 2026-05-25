@@ -1,6 +1,6 @@
 ---
 name: engineering-agent-skills
-description: Use this skill to review software engineering work before shipping and guide implementation quality. It helps with system design review, backend architecture technology choices, system design pattern recognition including large blob/file sync, media streaming, media-heavy social feeds, web crawling, external data monitoring, clickstream analytics, metrics monitoring, streaming Top-K, real-time dispatch, market-data proxies, financial workflows, LLM serving, local search, durable messaging, job scheduling, sandboxed task execution, recommendation feeds, timeline fan-out, auctions/bidding, offline-first sync, live comments, distributed rate limiting, distributed caching, collaborative editing, custom search indexing, coding guidelines, low-level design, commit messages, architecture decisions, API documentation, missing tests, risk areas, and reviewer questions.
+description: Use this skill to review engineering work before shipping and guide system design, backend architecture decisions, low-level design, code quality, API docs, ADRs, commit messages, and implementation risk. It includes reference playbooks for common distributed-system patterns such as large blobs, feeds, real-time updates, contention, workflows, caching, search, analytics, monitoring, scheduling, payments, LLM serving, and related production tradeoffs.
 ---
 
 # Engineering Agent Skills
@@ -114,7 +114,7 @@ Choose the workflow from the request:
 
 ## Output formats
 
-For reviews, use:
+For code, design, documentation, or release reviews, default to:
 
 ```md
 ## Summary
@@ -134,69 +134,13 @@ For reviews, use:
 
 For backend architecture technology choices or "which tool should we use?" decisions, use the recommendation format in `references/system-design-architecture-decision-playbook.md`.
 
-For common system design pattern recognition, architecture pattern selection, or designs involving long-running tasks, large blobs, read scaling, write scaling, multi-step workflows, contention, or real-time updates, use the response shape in `references/system-design-pattern-recognition-playbook.md`.
+For system design pattern recognition, use the response shape in `references/system-design-pattern-recognition-playbook.md`.
 
-For large blob storage, file sharing, multipart/resumable upload, signed URL transfer, CDN file delivery, Dropbox-style sync, or multi-device file sync designs, use the specialized guidance in `references/system-design-large-blob-file-sync.md`.
-
-For video/audio upload, async media processing, transcoding, adaptive bitrate streaming, manifests, segments, thumbnails, partial media readiness, or CDN playback designs, use the specialized guidance in `references/system-design-large-blob-media-streaming.md`.
-
-For local business search, geo/text/category search, Yelp-style reviews, derived rating aggregates, PostGIS/trigram search, Elasticsearch/OpenSearch read models, or named-location polygon designs, use the specialized guidance in `references/system-design-local-search-review-aggregates.md`.
-
-For durable chat or messaging systems with WebSockets, offline delivery, per-recipient inboxes, client acknowledgements, reconnect sync, routing pub/sub, multi-device state, or media attachments, use the specialized guidance in `references/system-design-durable-real-time-messaging.md`.
-
-For distributed job schedulers, delayed execution, recurring schedules, delayed queues, visibility timeouts, scheduler scanners, at-least-once execution, or idempotent scheduled tasks, use the specialized guidance in `references/system-design-distributed-job-scheduler.md`.
-
-For sandboxed code execution, online judges, CI/build runners, long-running submission processing, worker queues, polling status APIs, or Redis leaderboard materialization, use the specialized guidance in `references/system-design-sandboxed-long-running-task-execution.md`.
-
-For streaming Top-K, trending rankings, most-viewed leaderboards, event-time windows, watermarks, hot-key counters, or precomputed ranking snapshots, use the specialized guidance in `references/system-design-streaming-top-k-windowed-aggregation.md`.
-
-For recommendation candidate feeds, swiping/matching, reciprocal action consistency, feed cache refill, geospatial candidate search, repeated-candidate exclusion, or Bloom-filter action history designs, use the specialized guidance in `references/system-design-recommendation-feed-reciprocal-actions.md`.
-
-For social timelines, follower feeds, notification inboxes, fan-out-on-write/read, hybrid feed materialization, celebrity producer handling, follow graph adjacency, or post cache hydration designs, use the specialized guidance in `references/system-design-hybrid-feed-fanout-timeline.md`.
-
-For media-heavy social feeds combining large uploads, async media processing, CDN variants, preview readiness, and feed fan-out, use the specialized guidance in `references/system-design-media-heavy-social-feed.md`.
-
-For web crawlers, URL frontiers, fetch/parse pipelines, robots.txt politeness, crawl-delay enforcement, DNS-aware crawling, deduplication, or crawler trap protection, use the specialized guidance in `references/system-design-web-crawler-pipeline.md`.
-
-For external data monitoring, priority crawling, client-assisted observation, trust validation, time-series history, and threshold alerts, use the specialized guidance in `references/system-design-external-data-monitoring-alerts.md`.
-
-For real-time clickstream analytics, ad click aggregation, signed impression IDs, event-time windows, dedupe caches, hot-key stream partitioning, or OLAP dashboards, use the specialized guidance in `references/system-design-realtime-clickstream-aggregation.md`.
-
-For metrics monitoring platforms, time-series ingestion, label cardinality, rollups, dashboard queries, alert evaluation, alert state, notification delivery, or meta-monitoring, use the specialized guidance in `references/system-design-metrics-monitoring-platform.md`.
-
-For real-time dispatch, provider matching, geospatial assignment, location heartbeats, provider reservations, and accept/decline workflows, use the specialized guidance in `references/system-design-realtime-dispatch-provider-matching.md`.
-
-For market-data proxies, external live-feed fan-out, SSE/topic subscriptions, high-consistency order state, and reconciliation with external authorities, use the specialized guidance in `references/system-design-market-data-proxy-order-state.md`.
-
-For payments, checkout, refunds, payouts, financial workflow state machines, idempotency, audit trails, ledgers, durable webhooks, or external reconciliation, use the specialized guidance in `references/system-design-financial-workflow-state-machines.md`.
-
-For LLM serving, ChatGPT-like token streaming, GPU inference scheduling, SSE generation streams, generation lifecycle state, cancellation, context-cost control, or model routing, use the specialized guidance in `references/system-design-llm-serving-streaming-gpu-scheduling.md`.
-
-For auctions, bidding, contested state transitions, ordered per-entity writes, current-winner consistency, auction close workflows, or live highest-bid update designs, use the specialized guidance in `references/system-design-high-contention-bidding-realtime.md`.
-
-For offline-first mobile activity tracking, GPS/sensor capture, local durable queues, pause/resume state events, idempotent chunk sync, or intermittent-connectivity client designs, use the specialized guidance in `references/system-design-offline-first-activity-tracking.md`.
-
-For live comments, SSE/WebSocket fan-out, hot live rooms, recent-event replay, reconnect catch-up, and best-effort public event-stream designs, use the specialized guidance in `references/system-design-live-comment-streaming.md`.
-
-For distributed rate limiting, API gateway throttling, token buckets, sliding windows, Redis limiter state, hot global limits, or fail-open/fail-closed traffic protection designs, use the specialized guidance in `references/system-design-distributed-rate-limiter.md`.
-
-For distributed caches, consistent hashing, virtual nodes, local LRU, TTL expiration, cache replication, hot keys, stampede protection, or cache topology designs, use the specialized guidance in `references/system-design-distributed-cache.md`.
-
-For collaborative editing, shared mutable documents, OT/CRDT convergence, operation logs, snapshots, WebSocket co-editing, presence/cursor state, or reconnect replay designs, use the specialized guidance in `references/system-design-collaborative-editing-convergence.md`.
-
-For custom keyword search, inverted indexes, posting lists, hot/cold index tiers, approximate ranking/reranking, phrase indexes, or search without managed search engines, use the specialized guidance in `references/system-design-custom-inverted-index-search.md`.
-
-For local availability, inventory, booking, reservation, serviceability, pickup/delivery availability, overselling, or double-booking designs, use the specialized guidance in `references/system-design-local-availability-inventory-consistency.md`.
-
-For scarce inventory, checkout holds, TTL reservations, ticket/product drops, seat maps, waiting rooms, admission control, high-contention booking, payment finalization, or booking search designs, use the specialized guidance in `references/system-design-scarce-inventory-reservation-playbook.md`.
-
-For high-scale feed aggregation, feed delivery, content aggregation, or infinite-scroll designs, use the specialized guidance in `references/system-design-feed-aggregation-playbook.md`.
-
-For URL shorteners, short codes, low-latency redirects, invite/share/referral links, or compact public identifier mapping designs, use the specialized guidance in `references/system-design-read-heavy-immutable-mapping-playbook.md`.
+For specialized system designs, use the reference selected in `Workflow selection`; do not duplicate routing rules here.
 
 For Git commit messages, use the format and rules in `references/commit-message-guidelines.md`.
 
-For low-level design or coding guidance, use the response structure in `references/low-level-design-coding-principles.md` when the task is non-trivial.
+For low-level design or coding guidance, use `references/low-level-design-coding-principles.md` when the task is non-trivial.
 
 For small requests, keep the output shorter and include only the sections that add value.
 

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Engineering Agent Skills"
+  short_description: "Review engineering designs, code, docs, and risks"
+  default_prompt: "Use $engineering-agent-skills to review this engineering artifact before shipping."
+
+policy:
+  allow_implicit_invocation: true

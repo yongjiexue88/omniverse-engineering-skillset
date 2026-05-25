@@ -110,6 +110,30 @@ function resolveTargets(options) {
   return [target];
 }
 
+function isSameOrInside(childPath, parentPath) {
+  const relativePath = path.relative(parentPath, childPath);
+  return relativePath === "" || (!relativePath.startsWith("..") && !path.isAbsolute(relativePath));
+}
+
+function assertSafeInstallDestination(sourceDir, destinationDir) {
+  const resolvedSource = path.resolve(sourceDir);
+  const resolvedDestination = path.resolve(destinationDir);
+
+  if (isSameOrInside(resolvedDestination, resolvedSource)) {
+    throw new Error(
+      `Refusing to install into the source skill directory: ${resolvedDestination}. ` +
+        "Choose a target outside the package skills directory."
+    );
+  }
+
+  if (isSameOrInside(resolvedSource, resolvedDestination)) {
+    throw new Error(
+      `Refusing to install into a parent of the source skill directory: ${resolvedDestination}. ` +
+        "Choose a target outside the package source tree."
+    );
+  }
+}
+
 function installSkill(skillName, targetDir) {
   const sourceDir = path.join(skillsRoot, skillName);
   if (!fs.existsSync(path.join(sourceDir, "SKILL.md"))) {
@@ -117,6 +141,7 @@ function installSkill(skillName, targetDir) {
   }
 
   const destinationDir = path.resolve(process.cwd(), targetDir, skillName);
+  assertSafeInstallDestination(sourceDir, destinationDir);
   fs.mkdirSync(path.dirname(destinationDir), { recursive: true });
   fs.rmSync(destinationDir, { recursive: true, force: true });
   fs.cpSync(sourceDir, destinationDir, { recursive: true });

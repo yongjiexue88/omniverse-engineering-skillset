@@ -11,10 +11,26 @@ if [[ ! -d "$SKILLS_DIR" ]]; then
 fi
 
 mkdir -p "$TARGET_DIR"
+TARGET_DIR_ABS="$(cd "$TARGET_DIR" && pwd -P)"
 
 for skill_dir in "$SKILLS_DIR"/*; do
   [[ -d "$skill_dir" ]] || continue
-  cp -R "$skill_dir" "$TARGET_DIR/"
+  skill_dir_abs="$(cd "$skill_dir" && pwd -P)"
+  skill_name="$(basename "$skill_dir_abs")"
+  destination="$TARGET_DIR_ABS/$skill_name"
+
+  if [[ "$destination" == "$skill_dir_abs" || "$destination" == "$skill_dir_abs"/* ]]; then
+    echo "Error: refusing to install into the source skill directory: $destination" >&2
+    exit 1
+  fi
+
+  if [[ "$skill_dir_abs" == "$destination"/* ]]; then
+    echo "Error: refusing to install into a parent of the source skill directory: $destination" >&2
+    exit 1
+  fi
+
+  rm -rf "$destination"
+  cp -R "$skill_dir_abs" "$TARGET_DIR_ABS/"
 done
 
-echo "Installed skills from $SKILLS_DIR into $TARGET_DIR"
+echo "Installed skills from $SKILLS_DIR into $TARGET_DIR_ABS"
