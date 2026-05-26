@@ -28,23 +28,28 @@ This package installs a ready-to-use agent skill that helps your agent reason li
 
 ## Quick Start
 
-Install it in the project where you want your agent to use the skill:
+Run the installer in the project where you want your agent to use the skill:
 
 ```bash
-npm install engineering-agent-skills
+npx --yes engineering-agent-skills@latest install
 ```
 
-The install step copies the bundled skill into your project:
+This copies the bundled skill into the directory where you ran the command:
 
 ```txt
 .agents/skills/engineering-agent-skills
 ```
 
-Prefer not to add it as a dependency? Run the installer directly:
+This is the cleanest install path because it does not add a project dependency,
+`node_modules`, or lockfile changes.
+
+If you want to pin the skill package as a project dependency instead, use:
 
 ```bash
-npx engineering-agent-skills install
+npm install engineering-agent-skills
 ```
+
+The npm install path uses the same default target: `.agents/skills` with an `s`.
 
 ## Use It
 
@@ -76,24 +81,39 @@ Use engineering-agent-skills to review state ownership and concurrency risks.
 
 ## Command Reference
 
-Install for a specific agent target:
+Install into the default project skills directory:
 
 ```bash
-npx engineering-agent-skills install --agent codex
-npx engineering-agent-skills install --agent claude-code
+npx --yes engineering-agent-skills@latest install
+```
+
+Install for Claude Code project skills:
+
+```bash
+npx --yes engineering-agent-skills@latest install --agent claude-code
+```
+
+Install for Codex user-global skills:
+
+```bash
+npx --yes engineering-agent-skills@latest install --target ~/.codex/skills
 ```
 
 Install into a custom skills directory:
 
 ```bash
-npx engineering-agent-skills install --target .agents/skills
+npx --yes engineering-agent-skills@latest install --target .agents/skills
 ```
 
-List bundled skills:
+List bundled skills in this npm package:
 
 ```bash
-npx engineering-agent-skills list
+npx --yes engineering-agent-skills@latest list
 ```
+
+`list` does not inspect your local `.agents/skills`, `.claude/skills`, or
+`~/.codex/skills` directories. It only prints the skill names bundled in the
+package.
 
 ## Best Fit
 

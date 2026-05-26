@@ -1,9 +1,10 @@
 {
   "name": "engineering-agent-skills",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
   "scripts": {
-    "postinstall": "node scripts/postinstall.js"
+    "postinstall": "node scripts/postinstall.js",
+    "test": "node --test"
   },
   "bin": {
     "engineering-agent-skills": "bin/engineering-agent-skills.js"

@@ -110,6 +110,18 @@ function resolveTargets(options) {
   return [target];
 }
 
+function resolveInstallBaseDir(options = {}) {
+  return path.resolve(options.baseDir || process.env.INIT_CWD || process.cwd());
+}
+
+function resolveTargetDir(baseDir, targetDir) {
+  if (path.isAbsolute(targetDir)) {
+    return path.resolve(targetDir);
+  }
+
+  return path.resolve(baseDir, targetDir);
+}
+
 function isSameOrInside(childPath, parentPath) {
   const relativePath = path.relative(parentPath, childPath);
   return relativePath === "" || (!relativePath.startsWith("..") && !path.isAbsolute(relativePath));
@@ -134,13 +146,13 @@ function assertSafeInstallDestination(sourceDir, destinationDir) {
   }
 }
 
-function installSkill(skillName, targetDir) {
+function installSkill(skillName, targetDir, baseDir = resolveInstallBaseDir()) {
   const sourceDir = path.join(skillsRoot, skillName);
   if (!fs.existsSync(path.join(sourceDir, "SKILL.md"))) {
     throw new Error(`Skill not found: ${skillName}`);
   }
 
-  const destinationDir = path.resolve(process.cwd(), targetDir, skillName);
+  const destinationDir = path.join(resolveTargetDir(baseDir, targetDir), skillName);
   assertSafeInstallDestination(sourceDir, destinationDir);
   fs.mkdirSync(path.dirname(destinationDir), { recursive: true });
   fs.rmSync(destinationDir, { recursive: true, force: true });
@@ -152,6 +164,7 @@ function install(options) {
   const availableSkills = listSkills();
   const selectedSkills = options.skills.length > 0 ? options.skills : availableSkills;
   const targets = resolveTargets(options);
+  const baseDir = resolveInstallBaseDir(options);
 
   for (const skillName of selectedSkills) {
     if (!availableSkills.includes(skillName)) {
@@ -162,13 +175,13 @@ function install(options) {
   const installed = [];
   for (const target of targets) {
     for (const skillName of selectedSkills) {
-      installed.push(installSkill(skillName, target));
+      installed.push(installSkill(skillName, target, baseDir));
     }
   }
 
   console.log(`Installed ${selectedSkills.length} skill(s) into ${targets.length} target(s):`);
   for (const destination of installed) {
-    console.log(`- ${path.relative(process.cwd(), destination) || destination}`);
+    console.log(`- ${destination}`);
   }
 }
 
@@ -203,5 +216,7 @@ module.exports = {
   install,
   listSkills,
   resolveTargets,
+  resolveInstallBaseDir,
+  resolveTargetDir,
   installSkill
 };

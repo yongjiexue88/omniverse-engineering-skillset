@@ -6,11 +6,6 @@ const packageRoot = path.resolve(__dirname, "..");
 const packageJson = require(path.join(packageRoot, "package.json"));
 const { install } = require("../bin/engineering-agent-skills.js");
 
-function isSameOrInside(childPath, parentPath) {
-  const relativePath = path.relative(parentPath, childPath);
-  return relativePath === "" || (!relativePath.startsWith("..") && !path.isAbsolute(relativePath));
-}
-
 function shouldSkipAutoInstall(initCwd) {
   if (process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL) {
     return "ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL is set.";
@@ -22,11 +17,6 @@ function shouldSkipAutoInstall(initCwd) {
 
   if (!initCwd) {
     return "INIT_CWD is unavailable.";
-  }
-
-  const projectNodeModules = path.join(initCwd, "node_modules");
-  if (!isSameOrInside(packageRoot, projectNodeModules)) {
-    return "package is not installed under this project's node_modules.";
   }
 
   return null;
@@ -49,11 +39,19 @@ function main() {
       command: "install",
       skills: [],
       target: null,
-      agent: null
+      agent: null,
+      baseDir: initCwd
     });
   } finally {
     process.chdir(previousCwd);
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  main,
+  shouldSkipAutoInstall
+};
