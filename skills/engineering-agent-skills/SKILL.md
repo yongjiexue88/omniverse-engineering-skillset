@@ -1,17 +1,17 @@
 ---
 name: engineering-agent-skills
-description: Use this skill to review engineering work before shipping and guide system design, backend architecture decisions, low-level design, code quality, API docs, ADRs, commit messages, and implementation risk. It includes reference playbooks for common distributed-system patterns such as large blobs, feeds, real-time updates, contention, workflows, caching, search, analytics, monitoring, scheduling, payments, LLM serving, and related production tradeoffs.
+description: Use when the user explicitly asks for engineering review, system design help, backend architecture decisions, ADR/RFC critique, API documentation review, commit-message guidance, or non-trivial implementation-risk analysis before shipping. Do not use for ordinary code edits, simple bug fixes, formatting changes, UI-only implementation, or routine refactors unless the user asks for review, architecture guidance, or production-risk analysis.
 ---
 
 # Engineering Agent Skills
 
 ## Purpose
 
-Review software engineering work before it ships and guide implementation quality when requested. Use this skill to find correctness gaps, production risks, unclear decisions, weak documentation, weak low-level design, missing tests, and reviewer questions. Keep the review practical: identify what matters, explain why it matters, and propose concrete fixes.
+Review engineering artifacts before they ship and guide non-trivial architecture or implementation-risk decisions when requested. Use this skill to find correctness gaps, production risks, unclear decisions, weak documentation, weak low-level design, missing tests, and reviewer questions. Keep the review practical: identify what matters, explain why it matters, and propose concrete fixes.
 
 ## When to use
 
-Use this skill when the user asks for help with any of these tasks:
+Use this skill when the user explicitly asks for help with any of these tasks:
 
 - Reviewing a system design, architecture proposal, design doc, ADR, RFC, or technical plan.
 - Choosing backend/system architecture technologies such as API style, database type, indexing strategy, caching, queues, sharding, load balancing, or consistency model.
@@ -42,11 +42,13 @@ Use this skill when the user asks for help with any of these tasks:
 - Designing collaborative editing, OT/CRDT convergence, shared document operation logs, presence/cursor state, or real-time co-editing.
 - Designing custom inverted-index search, posting-list storage, hot/cold search tiers, approximate ranking, or search without Elasticsearch/OpenSearch.
 - Designing inventory, booking, reservation, local availability, serviceability, scarce-resource, waiting-room, or admission-control systems that need fast reads and strong final consistency.
-- Writing, reviewing, or refactoring code while avoiding overcomplication, broad edits, hidden assumptions, or unverifiable success criteria.
+- Reviewing a non-trivial code change, refactor plan, or implementation approach for correctness, simplicity, module boundaries, hidden assumptions, or testability.
 - Writing or improving a Git commit message.
 - Reviewing API documentation, integration docs, endpoint specs, or SDK docs.
-- Guiding implementation, refactoring, module boundaries, state ownership, concurrency/resource safety, or testable low-level design.
+- Guiding low-level design for non-trivial implementation choices involving state ownership, dependency boundaries, concurrency/resource safety, or testable structure.
 - Combining any of the above into one pre-ship review.
+
+Do not use this skill for routine implementation, small bug fixes, UI styling, formatting, dependency updates, or simple code edits unless the user explicitly asks for engineering review, architecture guidance, or production-risk analysis.
 
 ## Inputs to inspect
 
