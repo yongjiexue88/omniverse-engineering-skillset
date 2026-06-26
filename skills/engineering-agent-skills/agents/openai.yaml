@@ -1,7 +1,7 @@
 interface:
   display_name: "Engineering Agent Skills"
-  short_description: "Review designs, architecture, docs, and shipping risks"
+  short_description: "Explicit senior engineering review"
   default_prompt: "Use $engineering-agent-skills to review this engineering design or change before shipping."
 
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false

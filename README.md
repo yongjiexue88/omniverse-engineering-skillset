@@ -28,22 +28,59 @@ This package installs a ready-to-use agent skill that helps your agent reason li
 
 ## Quick Start
 
-Run the installer in the project where you want your agent to use the skill:
+Install from GitHub with the open `skills` CLI:
 
 ```bash
-npx --yes engineering-agent-skills@latest install
+npx skills add yongjiexue88/engineering-agent-skills
 ```
 
-This copies the bundled skill into the directory where you ran the command:
+That is the same repo shorthand style as:
+
+```bash
+npx skills add Aradotso/trending-skills
+```
+
+The `skills` CLI discovers this repo's bundled skill from:
+
+```txt
+skills/engineering-agent-skills/SKILL.md
+```
+
+Then it installs the skill into the agent directory you choose, such as:
 
 ```txt
 .agents/skills/engineering-agent-skills
 ```
 
-This is the cleanest install path because it does not add a project dependency,
-`node_modules`, or lockfile changes.
+List the skill before installing:
 
-If you want to pin the skill package as a project dependency instead, use:
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --list
+```
+
+Install for a specific agent:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --agent codex
+npx skills add yongjiexue88/engineering-agent-skills --agent claude-code
+```
+
+Install globally instead of into the current project:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --global
+```
+
+Prefer copied files instead of symlinks:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --copy
+```
+
+This path does not add `engineering-agent-skills` as a project dependency.
+
+If you want to pin the npm package as a project dependency instead, use the
+package-specific installer:
 
 ```bash
 npm install engineering-agent-skills
@@ -81,39 +118,44 @@ Use engineering-agent-skills to review state ownership and concurrency risks.
 
 ## Command Reference
 
-Install into the default project skills directory:
+Install with the open `skills` CLI:
 
 ```bash
-npx --yes engineering-agent-skills@latest install
+npx skills add yongjiexue88/engineering-agent-skills
+```
+
+List available skills in this repository:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --list
+```
+
+Install for Codex project skills:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --agent codex
 ```
 
 Install for Claude Code project skills:
 
 ```bash
+npx skills add yongjiexue88/engineering-agent-skills --agent claude-code
+```
+
+Install for all supported agents:
+
+```bash
+npx skills add yongjiexue88/engineering-agent-skills --all
+```
+
+Legacy package-specific installer:
+
+```bash
+npx --yes engineering-agent-skills@latest install
 npx --yes engineering-agent-skills@latest install --agent claude-code
-```
-
-Install for Codex user-global skills:
-
-```bash
 npx --yes engineering-agent-skills@latest install --target ~/.codex/skills
-```
-
-Install into a custom skills directory:
-
-```bash
-npx --yes engineering-agent-skills@latest install --target .agents/skills
-```
-
-List bundled skills in this npm package:
-
-```bash
 npx --yes engineering-agent-skills@latest list
 ```
-
-`list` does not inspect your local `.agents/skills`, `.claude/skills`, or
-`~/.codex/skills` directories. It only prints the skill names bundled in the
-package.
 
 ## Best Fit
 

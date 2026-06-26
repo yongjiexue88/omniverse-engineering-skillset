@@ -9,6 +9,7 @@ const cliPath = path.resolve(__dirname, "../bin/engineering-agent-skills.js");
 const postinstallPath = path.resolve(__dirname, "../scripts/postinstall.js");
 const {
   install,
+  listSkills,
   resolveTargetDir
 } = require("../bin/engineering-agent-skills.js");
 const { shouldSkipAutoInstall } = require("../scripts/postinstall.js");
@@ -27,6 +28,25 @@ function skillPath(baseDir, target = ".agents/skills") {
   return path.join(baseDir, target, "engineering-agent-skills", "SKILL.md");
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+test("repo exposes the skill in the standard npx skills discovery layout", () => {
+  const discoveredSkills = listSkills();
+  assert.deepEqual(discoveredSkills, ["engineering-agent-skills"]);
+
+  for (const skillName of discoveredSkills) {
+    const skillFile = path.resolve(__dirname, "../skills", skillName, "SKILL.md");
+    const source = fs.readFileSync(skillFile, "utf8");
+    const frontmatter = source.match(/^---\n([\s\S]*?)\n---/);
+
+    assert.ok(frontmatter, `${skillName} is missing YAML frontmatter`);
+    assert.match(frontmatter[1], new RegExp(`^name:\\s*${escapeRegExp(skillName)}\\s*$`, "m"));
+    assert.match(frontmatter[1], /^description:\s*\S.+$/m);
+  }
+});
+
 test("CLI default install creates .agents/skills under the current directory", () => {
   const baseDir = tempDir();
 
@@ -39,7 +59,7 @@ test("CLI default install creates .agents/skills under the current directory", (
   const expectedSkill = skillPath(baseDir);
   const expectedDestination = fs.realpathSync(path.dirname(expectedSkill));
   assert.ok(fs.existsSync(expectedSkill));
-  assert.match(output, new RegExp(expectedDestination.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.match(output, new RegExp(escapeRegExp(expectedDestination)));
 });
 
 test("INIT_CWD controls the install base when cwd differs", () => {

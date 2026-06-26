@@ -1,6 +1,6 @@
 ---
 name: engineering-agent-skills
-description: Use when the user explicitly asks for engineering review, system design help, backend architecture decisions, ADR/RFC critique, API documentation review, commit-message guidance, or non-trivial implementation-risk analysis before shipping. Do not use for ordinary code edits, simple bug fixes, formatting changes, UI-only implementation, or routine refactors unless the user asks for review, architecture guidance, or production-risk analysis.
+description: Explicit-only skill for senior-engineering review. Use only when the user names engineering-agent-skills or explicitly asks for engineering review, system design critique, backend architecture decisions, ADR/RFC critique, API documentation review, commit-message guidance, or non-trivial implementation-risk analysis before shipping. Do not use for ordinary code edits, simple bug fixes, formatting changes, UI-only implementation, or routine refactors.
 ---
 
 # Engineering Agent Skills
@@ -11,7 +11,7 @@ Review engineering artifacts before they ship and guide non-trivial architecture
 
 ## When to use
 
-Use this skill when the user explicitly asks for help with any of these tasks:
+Use this skill only when the user names `engineering-agent-skills` or explicitly asks for help with any of these tasks:
 
 - Reviewing a system design, architecture proposal, design doc, ADR, RFC, or technical plan.
 - Choosing backend/system architecture technologies such as API style, database type, indexing strategy, caching, queues, sharding, load balancing, or consistency model.

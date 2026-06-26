@@ -1,6 +1,6 @@
 {
   "name": "engineering-agent-skills",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
@@ -25,6 +25,8 @@
     "url": "https://github.com/yongjiexue88/engineering-agent-skills/issues"
   },
   "keywords": [
+    "skills",
+    "skills-cli",
     "agent-skills",
     "ai-agent",
     "codex",
