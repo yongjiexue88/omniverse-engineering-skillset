@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Pov"
+  short_description: "Help with Omniverse Pov tasks"
+  default_prompt: "Use $omniverse-pov to help with this engineering workflow."

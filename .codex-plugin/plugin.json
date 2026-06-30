@@ -1,7 +1,7 @@
 {
   "name": "omniverse-engineering-skillset",
   "version": "0.1.7",
-  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "description": "Make coding agents stronger engineering partners across planning, implementation, review, QA, git workflow, and system design.",
   "author": {
     "name": "Yongjie Xue",
     "url": "https://github.com/yongjiexue88"
@@ -20,19 +20,20 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Omniverse Engineering Skillset",
-    "shortDescription": "Explicit senior engineering review for code, architecture, and system design",
-    "longDescription": "Omniverse Engineering Skillset gives coding agents a focused senior-engineering review layer for production risk, system design tradeoffs, API documentation, implementation planning, and commit-message guidance.",
+    "shortDescription": "Lifecycle engineering workflows plus deep system design",
+    "longDescription": "Omniverse Engineering Skillset gives coding agents a full engineering workflow layer: brainstorm, plan, implement, debug, review, test, polish, commit, push, capture learnings, and use deep system-design references for production tradeoffs.",
     "developerName": "Yongjie Xue",
     "category": "Coding",
     "capabilities": [
       "Interactive",
-      "Read"
+      "Read",
+      "Write"
     ],
     "websiteURL": "https://github.com/yongjiexue88/omniverse-engineering-skillset",
     "defaultPrompt": [
-      "Review this design before shipping",
-      "Assess this implementation plan",
-      "Review this API documentation"
+      "Use Omniverse to plan and implement this change",
+      "Use Omniverse to review this PR before shipping",
+      "Use Omniverse to debug this failure and capture the learning"
     ],
     "brandColor": "#0EA5E9",
     "composerIcon": "./assets/icon.svg",

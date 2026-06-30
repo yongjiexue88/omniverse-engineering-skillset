@@ -1,7 +1,8 @@
 {
   "name": "omniverse-engineering-skillset",
   "version": "0.1.7",
-  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "description": "Make coding agents stronger engineering partners across planning, implementation, review, QA, git workflow, and system design.",
+  "license": "MIT",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
     "test": "node --test"
@@ -23,7 +24,10 @@
     "docs",
     "scripts",
     "skills",
+    "LICENSE",
+    "PRIVACY.md",
     "README.md",
+    "SECURITY.md",
     "install.sh"
   ],
   "repository": {

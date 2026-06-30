@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Worktree"
+  short_description: "Help with Omniverse Worktree tasks"
+  default_prompt: "Use $omniverse-worktree to help with this engineering workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Lfg"
+  short_description: "Help with Omniverse Lfg tasks"
+  default_prompt: "Use $omniverse-lfg to help with this engineering workflow."

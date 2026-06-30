@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Proof"
+  short_description: "Help with Omniverse Proof tasks"
+  default_prompt: "Use $omniverse-proof to help with this engineering workflow."

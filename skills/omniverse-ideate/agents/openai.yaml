@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Ideate"
+  short_description: "Help with Omniverse Ideate tasks"
+  default_prompt: "Use $omniverse-ideate to help with this engineering workflow."

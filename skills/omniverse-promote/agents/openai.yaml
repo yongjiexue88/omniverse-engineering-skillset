@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Promote"
+  short_description: "Help with Omniverse Promote tasks"
+  default_prompt: "Use $omniverse-promote to help with this engineering workflow."

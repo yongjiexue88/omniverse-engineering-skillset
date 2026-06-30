@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Simplify Code"
+  short_description: "Help with Omniverse Simplify Code tasks"
+  default_prompt: "Use $omniverse-simplify-code to help with this engineering workflow."

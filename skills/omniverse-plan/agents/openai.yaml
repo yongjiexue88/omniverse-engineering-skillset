@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Plan"
+  short_description: "Help with Omniverse Plan tasks"
+  default_prompt: "Use $omniverse-plan to help with this engineering workflow."

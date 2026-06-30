@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Doc Review"
+  short_description: "Help with Omniverse Doc Review tasks"
+  default_prompt: "Use $omniverse-doc-review to help with this engineering workflow."

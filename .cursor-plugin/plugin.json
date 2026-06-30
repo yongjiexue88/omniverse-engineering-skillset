@@ -2,7 +2,7 @@
   "name": "omniverse-engineering-skillset",
   "displayName": "Omniverse Engineering Skillset",
   "version": "0.1.7",
-  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "description": "Make coding agents stronger engineering partners across planning, implementation, review, QA, git workflow, and system design.",
   "author": {
     "name": "Yongjie Xue"
   },

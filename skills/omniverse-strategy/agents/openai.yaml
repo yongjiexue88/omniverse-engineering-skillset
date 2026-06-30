@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Strategy"
+  short_description: "Help with Omniverse Strategy tasks"
+  default_prompt: "Use $omniverse-strategy to help with this engineering workflow."

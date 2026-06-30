@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Test Xcode"
+  short_description: "Help with Omniverse Test Xcode tasks"
+  default_prompt: "Use $omniverse-test-xcode to help with this engineering workflow."

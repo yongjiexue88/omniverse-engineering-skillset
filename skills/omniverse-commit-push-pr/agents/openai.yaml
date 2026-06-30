@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Commit Push PR"
+  short_description: "Help with Omniverse Commit Push PR tasks"
+  default_prompt: "Use $omniverse-commit-push-pr to help with this engineering workflow."

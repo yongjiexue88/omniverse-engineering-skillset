@@ -34,16 +34,31 @@ function escapeRegExp(value) {
 
 test("repo exposes the skill in the standard npx skills discovery layout", () => {
   const discoveredSkills = listSkills();
-  assert.deepEqual(discoveredSkills, ["omniverse-engineering-skillset"]);
+  assert.equal(discoveredSkills.length, 28);
+  assert.ok(discoveredSkills.includes("omniverse-engineering-skillset"));
+  assert.ok(discoveredSkills.includes("omniverse-plan"));
+  assert.ok(discoveredSkills.includes("omniverse-code-review"));
+  assert.ok(discoveredSkills.includes("omniverse-commit-push-pr"));
+  assert.deepEqual(discoveredSkills, [...discoveredSkills].sort());
 
   for (const skillName of discoveredSkills) {
-    const skillFile = path.resolve(__dirname, "../skills", skillName, "SKILL.md");
+    const skillDir = path.resolve(__dirname, "../skills", skillName);
+    const skillFile = path.join(skillDir, "SKILL.md");
     const source = fs.readFileSync(skillFile, "utf8");
     const frontmatter = source.match(/^---\n([\s\S]*?)\n---/);
 
     assert.ok(frontmatter, `${skillName} is missing YAML frontmatter`);
     assert.match(frontmatter[1], new RegExp(`^name:\\s*${escapeRegExp(skillName)}\\s*$`, "m"));
     assert.match(frontmatter[1], /^description:\s*\S.+$/m);
+    assert.doesNotMatch(source, /\[TODO:/);
+
+    const openAiYaml = path.join(skillDir, "agents", "openai.yaml");
+    assert.ok(fs.existsSync(openAiYaml), `${skillName} is missing agents/openai.yaml`);
+    assert.match(
+      fs.readFileSync(openAiYaml, "utf8"),
+      new RegExp(`\\$${escapeRegExp(skillName)}\\b`),
+      `${skillName} default prompt should mention the skill`
+    );
   }
 });
 

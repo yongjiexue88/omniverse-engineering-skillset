@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Resolve PR Feedback"
+  short_description: "Help with Omniverse Resolve PR Feedback tasks"
+  default_prompt: "Use $omniverse-resolve-pr-feedback to help with this engineering workflow."

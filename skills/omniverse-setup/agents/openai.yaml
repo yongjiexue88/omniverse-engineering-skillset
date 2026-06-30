@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Setup"
+  short_description: "Help with Omniverse Setup tasks"
+  default_prompt: "Use $omniverse-setup to help with this engineering workflow."

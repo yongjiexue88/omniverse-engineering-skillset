@@ -1,7 +1,7 @@
 {
   "name": "omniverse-engineering-skillset",
   "version": "0.1.7",
-  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "description": "Make coding agents stronger engineering partners across planning, implementation, review, QA, git workflow, and system design.",
   "keywords": [
     "skills",
     "agent-skills",
@@ -14,8 +14,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Omniverse Engineering Skillset",
-    "shortDescription": "Explicit senior engineering review",
-    "longDescription": "Omniverse Engineering Skillset gives coding agents focused senior-engineering review for code, architecture, implementation plans, API docs, and system design.",
+    "shortDescription": "Engineering workflow and system design",
+    "longDescription": "Omniverse Engineering Skillset gives coding agents workflow skills for planning, implementation, debugging, reviews, QA, git operations, durable learnings, and deep system-design tradeoffs.",
     "developerName": "Yongjie Xue",
     "websiteURL": "https://github.com/yongjiexue88/omniverse-engineering-skillset"
   }

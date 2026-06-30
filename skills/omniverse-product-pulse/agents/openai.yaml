@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Product Pulse"
+  short_description: "Help with Omniverse Product Pulse tasks"
+  default_prompt: "Use $omniverse-product-pulse to help with this engineering workflow."

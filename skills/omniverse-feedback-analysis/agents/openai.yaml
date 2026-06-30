@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Feedback Analysis"
+  short_description: "Help with Omniverse Feedback Analysis tasks"
+  default_prompt: "Use $omniverse-feedback-analysis to help with this engineering workflow."

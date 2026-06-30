@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Polish"
+  short_description: "Help with Omniverse Polish tasks"
+  default_prompt: "Use $omniverse-polish to help with this engineering workflow."

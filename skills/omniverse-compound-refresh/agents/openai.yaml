@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Compound Refresh"
+  short_description: "Help with Omniverse Compound Refresh tasks"
+  default_prompt: "Use $omniverse-compound-refresh to help with this engineering workflow."

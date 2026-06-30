@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Debug"
+  short_description: "Help with Omniverse Debug tasks"
+  default_prompt: "Use $omniverse-debug to help with this engineering workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Omniverse Dogfood"
+  short_description: "Help with Omniverse Dogfood tasks"
+  default_prompt: "Use $omniverse-dogfood to help with this engineering workflow."

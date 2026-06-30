@@ -25,8 +25,12 @@ test("Codex plugin manifest mirrors package metadata and references existing ass
   assert.equal(manifest.description, packageJson.description);
   assert.equal(manifest.skills, "./skills/");
   assert.equal(manifest.interface.displayName, "Omniverse Engineering Skillset");
+  assert.ok(manifest.interface.capabilities.includes("Read"));
+  assert.ok(manifest.interface.capabilities.includes("Write"));
 
   assertPathExists("skills/omniverse-engineering-skillset/SKILL.md");
+  assertPathExists("skills/omniverse-plan/SKILL.md");
+  assertPathExists("skills/omniverse-compound/scripts/create-solution-note.js");
   assertPathExists(manifest.interface.composerIcon.replace("./", ""));
   assertPathExists(manifest.interface.logo.replace("./", ""));
 });
@@ -62,4 +66,12 @@ test("repo-local marketplaces point at the renamed package", () => {
 
   const kimiMarketplace = readJson(".kimi-plugin/marketplace.json");
   assert.equal(kimiMarketplace.plugins[0].id, packageJson.name);
+});
+
+test("durable artifact directories are tracked", () => {
+  assertPathExists("docs/plans/.gitkeep");
+  assertPathExists("docs/solutions/.gitkeep");
+  assertPathExists("docs/reviews/.gitkeep");
+  assertPathExists("docs/qa/.gitkeep");
+  assertPathExists("docs/proof/.gitkeep");
 });
