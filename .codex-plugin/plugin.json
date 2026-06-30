@@ -1,0 +1,42 @@
+{
+  "name": "omniverse-engineering-skillset",
+  "version": "0.1.7",
+  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "author": {
+    "name": "Yongjie Xue",
+    "url": "https://github.com/yongjiexue88"
+  },
+  "homepage": "https://github.com/yongjiexue88/omniverse-engineering-skillset#readme",
+  "repository": "https://github.com/yongjiexue88/omniverse-engineering-skillset",
+  "keywords": [
+    "skills",
+    "skills-cli",
+    "agent-skills",
+    "ai-agent",
+    "codex",
+    "claude-code",
+    "software-engineering"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Omniverse Engineering Skillset",
+    "shortDescription": "Explicit senior engineering review for code, architecture, and system design",
+    "longDescription": "Omniverse Engineering Skillset gives coding agents a focused senior-engineering review layer for production risk, system design tradeoffs, API documentation, implementation planning, and commit-message guidance.",
+    "developerName": "Yongjie Xue",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Read"
+    ],
+    "websiteURL": "https://github.com/yongjiexue88/omniverse-engineering-skillset",
+    "defaultPrompt": [
+      "Review this design before shipping",
+      "Assess this implementation plan",
+      "Review this API documentation"
+    ],
+    "brandColor": "#0EA5E9",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": []
+  }
+}

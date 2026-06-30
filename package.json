@@ -10,7 +10,17 @@
     "omniverse-engineering-skillset": "bin/omniverse-engineering-skillset.js"
   },
   "files": [
+    ".agents/plugins",
+    ".agy",
+    ".claude-plugin",
+    ".codex-plugin",
+    ".cursor-plugin",
+    ".kimi-plugin",
+    ".opencode",
+    ".pi",
+    "assets",
     "bin",
+    "docs",
     "scripts",
     "skills",
     "README.md",

@@ -1,0 +1,10 @@
+{
+  "version": "2",
+  "plugins": [
+    {
+      "id": "omniverse-engineering-skillset",
+      "displayName": "Omniverse Engineering Skillset",
+      "source": "https://github.com/yongjiexue88/omniverse-engineering-skillset"
+    }
+  ]
+}

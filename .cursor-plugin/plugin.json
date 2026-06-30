@@ -1,0 +1,19 @@
+{
+  "name": "omniverse-engineering-skillset",
+  "displayName": "Omniverse Engineering Skillset",
+  "version": "0.1.7",
+  "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+  "author": {
+    "name": "Yongjie Xue"
+  },
+  "homepage": "https://github.com/yongjiexue88/omniverse-engineering-skillset#readme",
+  "repository": "https://github.com/yongjiexue88/omniverse-engineering-skillset",
+  "keywords": [
+    "cursor",
+    "plugin",
+    "agent-skills",
+    "code-review",
+    "system-design",
+    "software-engineering"
+  ]
+}

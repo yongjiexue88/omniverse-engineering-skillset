@@ -1,0 +1,27 @@
+{
+  "name": "omniverse-engineering-skillset",
+  "owner": {
+    "name": "Yongjie Xue"
+  },
+  "metadata": {
+    "description": "Plugin marketplace for Omniverse Engineering Skillset",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "omniverse-engineering-skillset",
+      "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
+      "author": {
+        "name": "Yongjie Xue"
+      },
+      "homepage": "https://github.com/yongjiexue88/omniverse-engineering-skillset",
+      "tags": [
+        "code-review",
+        "system-design",
+        "software-engineering",
+        "agent-skills"
+      ],
+      "source": "./"
+    }
+  ]
+}

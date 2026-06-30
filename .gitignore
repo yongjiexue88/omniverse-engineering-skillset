@@ -1,5 +1,5 @@
 .DS_Store
-.agents/
+.agents/skills/
 node_modules/
 skills-lock.json
 *.tgz
