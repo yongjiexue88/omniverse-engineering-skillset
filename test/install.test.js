@@ -5,17 +5,17 @@ const os = require("node:os");
 const path = require("node:path");
 const test = require("node:test");
 
-const cliPath = path.resolve(__dirname, "../bin/engineering-agent-skills.js");
+const cliPath = path.resolve(__dirname, "../bin/omniverse-engineering-skillset.js");
 const postinstallPath = path.resolve(__dirname, "../scripts/postinstall.js");
 const {
   install,
   listSkills,
   resolveTargetDir
-} = require("../bin/engineering-agent-skills.js");
+} = require("../bin/omniverse-engineering-skillset.js");
 const { shouldSkipAutoInstall } = require("../scripts/postinstall.js");
 
 function tempDir() {
-  return fs.mkdtempSync(path.join(os.tmpdir(), "engineering-agent-skills-test-"));
+  return fs.mkdtempSync(path.join(os.tmpdir(), "omniverse-engineering-skillset-test-"));
 }
 
 function envWithoutInitCwd(extra = {}) {
@@ -25,7 +25,7 @@ function envWithoutInitCwd(extra = {}) {
 }
 
 function skillPath(baseDir, target = ".agents/skills") {
-  return path.join(baseDir, target, "engineering-agent-skills", "SKILL.md");
+  return path.join(baseDir, target, "omniverse-engineering-skillset", "SKILL.md");
 }
 
 function escapeRegExp(value) {
@@ -34,7 +34,7 @@ function escapeRegExp(value) {
 
 test("repo exposes the skill in the standard npx skills discovery layout", () => {
   const discoveredSkills = listSkills();
-  assert.deepEqual(discoveredSkills, ["engineering-agent-skills"]);
+  assert.deepEqual(discoveredSkills, ["omniverse-engineering-skillset"]);
 
   for (const skillName of discoveredSkills) {
     const skillFile = path.resolve(__dirname, "../skills", skillName, "SKILL.md");
@@ -114,29 +114,29 @@ test("resolveTargetDir keeps absolute targets absolute", () => {
 });
 
 test("postinstall skip rules only cover explicit skip, global install, and missing INIT_CWD", () => {
-  const originalSkip = process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL;
+  const originalSkip = process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL;
   const originalGlobal = process.env.npm_config_global;
 
   try {
-    delete process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL;
+    delete process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL;
     delete process.env.npm_config_global;
     assert.equal(shouldSkipAutoInstall(tempDir()), null);
     assert.equal(shouldSkipAutoInstall(null), "INIT_CWD is unavailable.");
 
-    process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL = "1";
+    process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL = "1";
     assert.equal(
       shouldSkipAutoInstall(tempDir()),
-      "ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL is set."
+      "OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL is set."
     );
 
-    delete process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL;
+    delete process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL;
     process.env.npm_config_global = "true";
     assert.equal(shouldSkipAutoInstall(tempDir()), "global npm install detected.");
   } finally {
     if (originalSkip === undefined) {
-      delete process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL;
+      delete process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL;
     } else {
-      process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL = originalSkip;
+      process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL = originalSkip;
     }
 
     if (originalGlobal === undefined) {

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Omniverse Engineering Skillset"
+  short_description: "Explicit senior engineering review"
+  default_prompt: "Use $omniverse-engineering-skillset to review this engineering design or change before shipping."
+
+policy:
+  allow_implicit_invocation: false

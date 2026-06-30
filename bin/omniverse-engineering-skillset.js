@@ -17,11 +17,11 @@ const agentTargets = {
 };
 
 function usage() {
-  console.log(`engineering-agent-skills ${packageJson.version}
+  console.log(`omniverse-engineering-skillset ${packageJson.version}
 
 Usage:
-  engineering-agent-skills install [options]
-  engineering-agent-skills list
+  omniverse-engineering-skillset install [options]
+  omniverse-engineering-skillset list
 
 Options:
   --skill <name>       Install one skill. Can be repeated. Defaults to all skills.
@@ -32,11 +32,11 @@ Options:
   --version, -v        Show version.
 
 Examples:
-  npx engineering-agent-skills install
-  npx engineering-agent-skills install --skill engineering-agent-skills
-  npx engineering-agent-skills install --agent codex
-  npx engineering-agent-skills install --agent claude-code
-  npx engineering-agent-skills install --target .agents/skills
+  npx omniverse-engineering-skillset install
+  npx omniverse-engineering-skillset install --skill omniverse-engineering-skillset
+  npx omniverse-engineering-skillset install --agent codex
+  npx omniverse-engineering-skillset install --agent claude-code
+  npx omniverse-engineering-skillset install --target .agents/skills
 `);
 }
 

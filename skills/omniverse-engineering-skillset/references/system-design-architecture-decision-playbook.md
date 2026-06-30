@@ -1228,7 +1228,7 @@ I would start with ...
 Use this instruction with a coding agent:
 
 ```txt
-Use the engineering-agent-skills skill with the system design architecture decision playbook.
+Use the omniverse-engineering-skillset skill with the system design architecture decision playbook.
 
 Before recommending architecture, identify missing requirements around scale, access patterns, consistency, latency, data size, read/write ratio, and operational constraints.
 

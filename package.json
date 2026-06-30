@@ -1,5 +1,5 @@
 {
-  "name": "engineering-agent-skills",
+  "name": "omniverse-engineering-skillset",
   "version": "0.1.7",
   "description": "Make coding agents stronger engineering partners for reviews, implementation planning, and system design.",
   "scripts": {
@@ -7,7 +7,7 @@
     "test": "node --test"
   },
   "bin": {
-    "engineering-agent-skills": "bin/engineering-agent-skills.js"
+    "omniverse-engineering-skillset": "bin/omniverse-engineering-skillset.js"
   },
   "files": [
     "bin",
@@ -18,11 +18,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yongjiexue88/engineering-agent-skills.git"
+    "url": "git+https://github.com/yongjiexue88/omniverse-engineering-skillset.git"
   },
-  "homepage": "https://github.com/yongjiexue88/engineering-agent-skills#readme",
+  "homepage": "https://github.com/yongjiexue88/omniverse-engineering-skillset#readme",
   "bugs": {
-    "url": "https://github.com/yongjiexue88/engineering-agent-skills/issues"
+    "url": "https://github.com/yongjiexue88/omniverse-engineering-skillset/issues"
   },
   "keywords": [
     "skills",

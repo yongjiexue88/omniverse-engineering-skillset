@@ -4,11 +4,11 @@ const path = require("node:path");
 
 const packageRoot = path.resolve(__dirname, "..");
 const packageJson = require(path.join(packageRoot, "package.json"));
-const { install } = require("../bin/engineering-agent-skills.js");
+const { install } = require("../bin/omniverse-engineering-skillset.js");
 
 function shouldSkipAutoInstall(initCwd) {
-  if (process.env.ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL) {
-    return "ENGINEERING_AGENT_SKILLS_SKIP_AUTO_INSTALL is set.";
+  if (process.env.OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL) {
+    return "OMNIVERSE_ENGINEERING_SKILLSET_SKIP_AUTO_INSTALL is set.";
   }
 
   if (process.env.npm_config_global === "true") {

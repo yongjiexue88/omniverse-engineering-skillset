@@ -1,6 +1,6 @@
-# Engineering Agent Skills
+# Omniverse Engineering Skillset
 
-[![npm version](https://img.shields.io/npm/v/engineering-agent-skills?color=cb3837&label=npm)](https://www.npmjs.com/package/engineering-agent-skills)
+[![npm version](https://img.shields.io/npm/v/omniverse-engineering-skillset?color=cb3837&label=npm)](https://www.npmjs.com/package/omniverse-engineering-skillset)
 ![Node.js >=18](https://img.shields.io/badge/node-%3E%3D18-339933)
 ![Agent skill pack](https://img.shields.io/badge/agent%20skills-ready%20to%20use-7c3aed)
 ![Focus](https://img.shields.io/badge/focus-reviews%20%7C%20planning%20%7C%20system%20design-0ea5e9)
@@ -31,7 +31,7 @@ This package installs a ready-to-use agent skill that helps your agent reason li
 Install from GitHub with the open `skills` CLI:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills
+npx skills add yongjiexue88/omniverse-engineering-skillset
 ```
 
 That is the same repo shorthand style as:
@@ -43,47 +43,47 @@ npx skills add Aradotso/trending-skills
 The `skills` CLI discovers this repo's bundled skill from:
 
 ```txt
-skills/engineering-agent-skills/SKILL.md
+skills/omniverse-engineering-skillset/SKILL.md
 ```
 
 Then it installs the skill into the agent directory you choose, such as:
 
 ```txt
-.agents/skills/engineering-agent-skills
+.agents/skills/omniverse-engineering-skillset
 ```
 
 List the skill before installing:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --list
+npx skills add yongjiexue88/omniverse-engineering-skillset --list
 ```
 
 Install for a specific agent:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --agent codex
-npx skills add yongjiexue88/engineering-agent-skills --agent claude-code
+npx skills add yongjiexue88/omniverse-engineering-skillset --agent codex
+npx skills add yongjiexue88/omniverse-engineering-skillset --agent claude-code
 ```
 
 Install globally instead of into the current project:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --global
+npx skills add yongjiexue88/omniverse-engineering-skillset --global
 ```
 
 Prefer copied files instead of symlinks:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --copy
+npx skills add yongjiexue88/omniverse-engineering-skillset --copy
 ```
 
-This path does not add `engineering-agent-skills` as a project dependency.
+This path does not add `omniverse-engineering-skillset` as a project dependency.
 
 If you want to pin the npm package as a project dependency instead, use the
 package-specific installer:
 
 ```bash
-npm install engineering-agent-skills
+npm install omniverse-engineering-skillset
 ```
 
 The npm install path uses the same default target: `.agents/skills` with an `s`.
@@ -93,68 +93,68 @@ The npm install path uses the same default target: `.agents/skills` with an `s`.
 Ask your agent to use the skill by name:
 
 ```txt
-Use engineering-agent-skills to review this architecture proposal.
+Use omniverse-engineering-skillset to review this architecture proposal.
 ```
 
 Try it for everyday engineering work:
 
 ```txt
-Use engineering-agent-skills before implementing this feature.
-Use engineering-agent-skills to review these API docs before release.
-Use engineering-agent-skills to write a commit message for this diff.
-Use engineering-agent-skills to design a hybrid follower timeline.
-Use engineering-agent-skills to review state ownership and concurrency risks.
+Use omniverse-engineering-skillset before implementing this feature.
+Use omniverse-engineering-skillset to review these API docs before release.
+Use omniverse-engineering-skillset to write a commit message for this diff.
+Use omniverse-engineering-skillset to design a hybrid follower timeline.
+Use omniverse-engineering-skillset to review state ownership and concurrency risks.
 ```
 
 ## Popular Workflows
 
 | Workflow | Example prompt |
 | --- | --- |
-| Code review | `Use engineering-agent-skills to review this PR for production risks.` |
-| Implementation planning | `Use engineering-agent-skills to plan the smallest safe implementation for this feature.` |
-| System design | `Use engineering-agent-skills to design a rate limiter for this API.` |
-| API documentation | `Use engineering-agent-skills to review these endpoint docs before release.` |
-| Commit messages | `Use engineering-agent-skills to write a commit message for this diff.` |
+| Code review | `Use omniverse-engineering-skillset to review this PR for production risks.` |
+| Implementation planning | `Use omniverse-engineering-skillset to plan the smallest safe implementation for this feature.` |
+| System design | `Use omniverse-engineering-skillset to design a rate limiter for this API.` |
+| API documentation | `Use omniverse-engineering-skillset to review these endpoint docs before release.` |
+| Commit messages | `Use omniverse-engineering-skillset to write a commit message for this diff.` |
 
 ## Command Reference
 
 Install with the open `skills` CLI:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills
+npx skills add yongjiexue88/omniverse-engineering-skillset
 ```
 
 List available skills in this repository:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --list
+npx skills add yongjiexue88/omniverse-engineering-skillset --list
 ```
 
 Install for Codex project skills:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --agent codex
+npx skills add yongjiexue88/omniverse-engineering-skillset --agent codex
 ```
 
 Install for Claude Code project skills:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --agent claude-code
+npx skills add yongjiexue88/omniverse-engineering-skillset --agent claude-code
 ```
 
 Install for all supported agents:
 
 ```bash
-npx skills add yongjiexue88/engineering-agent-skills --all
+npx skills add yongjiexue88/omniverse-engineering-skillset --all
 ```
 
 Legacy package-specific installer:
 
 ```bash
-npx --yes engineering-agent-skills@latest install
-npx --yes engineering-agent-skills@latest install --agent claude-code
-npx --yes engineering-agent-skills@latest install --target ~/.codex/skills
-npx --yes engineering-agent-skills@latest list
+npx --yes omniverse-engineering-skillset@latest install
+npx --yes omniverse-engineering-skillset@latest install --agent claude-code
+npx --yes omniverse-engineering-skillset@latest install --target ~/.codex/skills
+npx --yes omniverse-engineering-skillset@latest list
 ```
 
 ## Best Fit
